@@ -1,0 +1,37 @@
+.panel-heading {
+    cursor: pointer;
+}
+
+/* CSS Method for adding Font Awesome Chevron Icons */
+.accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'FontAwesome';
+    content: "\f056";
+    float: right;
+    color: inherit;
+
+}
+
+.panel-heading.collapsed .accordion-toggle:after {
+    /* symbol for "collapsed" panels */
+    content: "\f055";
+}
+
+body {
+    background: #3c688e;
+
+}
+
+
+
+
+.material-icons {
+    vertical-align: middle !important;
+}
+
+
+
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+margin-top: 0;
+margin-left: 65px;
+}

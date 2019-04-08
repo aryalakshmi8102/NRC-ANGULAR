@@ -1,0 +1,585 @@
+
+
+
+<div class="container">
+
+    <h3 style="color:#FFF;text-align: center">NEW ADMISSION</h3>
+
+<div class="pull-right">
+        <a [routerLink]="['../logout']" class="btn btn-link">Logout</a>
+</div>
+  
+
+
+    <!-- collapse start here -->
+
+    <div class="panel-group" id="accordion" style="margin-top:50px;">
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+                <h4 class="panel-title accordion-toggle">
+                    Registration Details
+                </h4>
+
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse collapse in">
+                <div class="panel-body">
+
+                    
+                        <form>
+          
+                                <div class="form-group row">
+    
+                                    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="uhid">UH ID/ OPD ID*</label>
+                                        <input class="form-control" id="uhid" type="text" placeholder="8389456" required
+                                            >
+                                    </div>
+                                    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="ip">IP No*</label>
+                                        <input class="form-control" id="ip" type="text" placeholder="8389456"
+                                            >
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">Unit*</label>
+                                            <select *ngIf="units" id="" class="form-control" >
+                                                <option *ngFor="let unit of units">{{unit.configDesc}}</option>
+                                               
+                                               
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Ward*</label>
+                                                <select *ngIf="wards" id="" class="form-control" >
+                                                        <option *ngFor="let ward of wards">{{ward.configDesc}}</option>
+                                                       
+                                                       
+                                                    </select>
+
+                                                
+                                                
+                                            </div>
+                                   
+    
+    
+                                </div>
+
+
+
+                               
+                                <div class="form-group row">
+
+
+                                        
+
+                                    
+                                      
+                                            
+                                        <div class="col-md-4 col-xs-4">
+                                                <label for="ex2">Referred  From</label>
+                                                <select *ngIf="referreds" id="" class="form-control">
+                                                        <option *ngFor="let referred of referreds">{{referred.configDesc}}</option>
+                                                       
+                                                       
+                                                    </select>
+                                            </div>
+
+
+
+
+                                            
+                                            <div class="col-md-4 col-xs-4">
+                                                    <label for="ex2">Referred By</label>
+                                                    <input class="form-control" id="height" type="text" placeholder="Sunda">
+                                                </div>
+                                                <div class="col-md-4 col-xs-4">
+                                                        <label for="ex2">Type Of Admission</label>
+                                                        <select  *ngIf="admissiontypes" id="" class="form-control">
+                                                                <option *ngFor="let admissiontype of admissiontypes">{{admissiontype.configDesc}}</option>
+                                                                
+                                                                
+                                                            </select>
+                                                    </div>
+
+
+                                                   
+
+                                </div>
+                            </form>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+                <h4 class="panel-title accordion-toggle">
+                    Child Demography
+                </h4>
+
+
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse ">
+                <div class="panel-body">
+
+                        <form>
+                                <div class="form-group row">
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="rch">RCH ID</label>
+                                        <input class="form-control" id="rch" type="text">
+                                    </div>
+
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="name">Name*</label>
+                                        <input class="form-control" id="name" type="text">
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="dob">Date Of Birth*</label>
+                                        <input class="form-control" id="dob" type="date">
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="age">Age*</label>
+                                        <input class="form-control" id="age" type="text">
+                                    </div>
+                                    
+    
+                                </div>
+                                 <div class="form-group row">
+                                        <div class="col-md-2 col-xs-2">
+                                                <label for="sex">Sex*</label>
+                                                <select id="sex" class="form-control mal-nourish">
+                                                    <option>--Select--</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                    <option>Others</option>
+            
+                                                </select>
+                                            </div>
+                                    <div class="col-md-4 col-xs-4">
+                                        <label for="address">Address*:</label>
+                                        <textarea class="form-control" rows="3" id="address"></textarea>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="contact">Contact No*</label>
+                                        <input class="form-control" id="contact" type="text">
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="category">Category* </label>
+                                        <select id="category" class="form-control mal-nourish">
+                                            <option>--Select--</option>
+                                            <option>BPL</option>
+                                            <option>APL</option>
+    
+    
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+    
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="religion">Religion*</label>
+                                        <select   *ngIf="religions"  id="religion" class="form-control ">
+                                            <option *ngFor="let religion of religions">{{religion.configDesc}}</option>
+                                        
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="caste">Caste*</label>
+                                        <select    *ngIf="castes" id="caste" class="form-control">
+                                            <option  *ngFor="let caste of castes">{{caste.configDesc}}</option>
+                                           
+    
+                                        </select>
+                                    </div>
+    
+    
+                                </div>
+    
+                            </form>
+                
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
+                <h4 class="panel-title accordion-toggle">
+                    Admission Criteria
+                </h4>
+
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse ">
+                <div class="panel-body">
+                       
+
+                        <form>
+                            <div class="form-group">
+                                    <label for="comment">Admission Criteria*:</label><br>
+                                    <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                            <label *ngFor="let criteria of criterias" class="col-md-2 col-xs-2">
+                                                <input  type="checkbox" name="criteria" value="">
+                                                {{criteria.configDesc}}
+                                            </label>
+                                                    </div>
+
+                            </div>
+                                <!-- <div class="form-group">
+                                    <label for="comment">Admission Criteria*:</label><br>
+                                    <div class="checkbox-inline">
+                                        <label><input type="checkbox" name="criteria" value="">WFL/WFH < -3Z </label>
+                                                </div>
+                                                
+                                                <div class="checkbox-inline">
+                                                    <label><input type="checkbox" name="criteria" value="">MUAC
+                                                        <115mm </label> </div>
+                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" name="criteria" value="">Severe
+                                                            Wasting</label>
+                                    </div>
+                                    <div class="checkbox-inline">
+                                        <label><input type="checkbox" name="criteria" value="">B/L Edema </label>
+                                    </div>
+                                    <div class="checkbox-inline">
+                                        <label><input type="checkbox" name="criteria" value="">Others</label>
+                                    </div>
+                                    <div class="checkbox-inline">
+    
+    
+    
+                                        <input type="text" name="criteria" placeholder="" disabled>
+    
+                                    </div>
+    
+                                </div> -->
+                               
+
+                                <div class="form-group">
+                                    <label for="comment"> Comorbid Condition:</label><br>
+                                    <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                            <label *ngFor="let comorbid of comorbids" class="col-md-2 col-xs-2">
+                                                <input  type="checkbox" name="comorbid" value="">
+                                                {{comorbid.configDesc}}
+                                            </label>
+                                                    </div>
+
+                            </div>
+
+
+                               
+                                    
+    
+                                <div class="form-group row">
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="date">Admission Date:</label><br>
+                                        <input class="form-control" id="date" type="date" >
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="date">Admission Height:</label><br>
+                                            <input class="form-control" id="date" type="text" >
+        
+                                        </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="weight">Admission weight</label>
+                                        <input class="form-control" id="height" type="text">
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="target">Target weight</label>
+                                        <input class="form-control" id="weight" type="text">
+                                    </div>
+    
+    
+                                </div>
+                            </form>
+
+                    
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive">
+                <h4 class="panel-title accordion-toggle">
+                    Mother Details & Demography 
+               </h4>
+
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse collapse in">
+                <div class="panel-body">
+
+
+
+
+                        <form #form='ngForm' ngNativeValidate (ngSubmit)='submitForm(form.value)'>
+                                <div class="form-group row">
+                                    <div class="col-md-3 col col-xs-3">
+                                        <label for="name">Name</label>
+                                        <input  type='text' class='form-control'  [ngModel]='mothername' name='mothername' required>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="dob">Date Of Birth</label>
+                                        <input type='text' class='form-control' [ngModel]='motherdob' name='motherdob'  required>
+                                    </div>
+    
+                                    <div class="col-md-3  col-xs-3">
+                                        <label for="age">Age</label>
+                                        <input class="form-control" id="motherage" type="text">
+                                    </div>
+
+
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="qualifications">Education*</label>
+                                        <select    id="qualifications" *ngIf="qualifications"  class="form-control">
+                                            <option  *ngFor="let qualification of qualifications">{{qualification.configDesc}}</option>
+                                           
+    
+                                        </select>
+                                    </div>
+
+                                    
+                                    
+    
+                                </div>
+
+
+
+                                <div class="form-group row">
+    
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="weight">Weight</label>
+                                                <input class="form-control" id="motherweight" type="text">
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="height">Height</label>
+                                                <input class="form-control" id="motherheight" type="text">
+                                            </div>
+            
+            
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="bmi">BMI</label>
+                                                <input class="form-control" id="motherbmi" type="text" disabled>
+                                            </div>  
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="muac">MUAC</label><br>
+                                                    <input class="form-control" id="muacmother" name="" >
+                
+                                                </div>   
+                                       
+                                       
+                                       
+                                        
+        
+                                    </div>
+                                    <div class="form-group row">
+                                            <div class="col-md-2 col-xs-2">
+                                                    <label for="hbmother">Hb (g/dl)</label>
+                                                    <input class="form-control" id="hb" type="text">
+                                                </div>
+                                                <div class="col-md-3 col-xs-3">
+                                                        <label for="neck">Neck Circumference</label>
+                                                        <input class="form-control" id="neck" type="text">
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">Gravida</label>
+                                                            <input class="form-control" id="gravida" type="text">
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                                <label for="para">Para</label>
+                                                                <input class="form-control" id="para" type="text">
+                                                            </div>
+                                                            <div class="col-md-3 col-xs-3">
+                                                                    <label for="ex2">No of Children</label>
+                                                                    <input class="form-control" id="noofchildren" type="text">
+                                                                </div>
+                    
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                <div class="form-group row">
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Family Planning</label>
+                                                <select id="familyplanning" class="form-control">
+                                                    <option>--select--</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+            
+            
+                                                </select>
+                                            </div>
+    
+    
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="ex2">Medical Problems</label>
+                                        <select id="medicalproblem" class="form-control mal-nourish">
+                                            <option>--Select--</option>
+                                            <option>No</option>
+                                            <option>Yes</option>
+    
+    
+    
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+    
+                                        <textarea class="form-control" rows="3" id="comment" disabled></textarea>
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="target">Drugs Prescribed</label>
+                                            <select id="Drugs" class="form-control">
+                                                <option>--select--</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                                </select>
+        
+                                        </div>
+                                   
+                                    
+                                   
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-2 col-xs-2">
+                                        <label for="ex2">Fasting Blood Glucose </label>
+                                        <input class="form-control" id="bloodglucose" type="text">
+                                    </div>
+                                    <div class="col-md-2 col-xs-2">
+                                            
+                                        <label for="ex2">Blood pressure(CP)  </label>
+                                        <input class="form-control" id="bloodpressure" type="text" placeholder="Cp">
+                                            
+                                        
+                                    </div>
+
+                                    <div class="col-md-2 col-xs-2">
+                                            
+                                        <label for="ex2">Blood pressure(DP) </label>
+                                        <input class="form-control" id="bloodpressure" type="text" placeholder="Cp">
+                                            
+                                        
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">Present Dietary Choice  </label>
+                                            <select id="Dietary" class="form-control">
+                                                    <option>--select--</option>
+                                                    <option>Veg</option>
+                                                    <option>Non Veg</option>
+                                                    </select>
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="ex2">No. of meals per day </label>
+                                        <input class="form-control" id="meals" type="text">
+                                    </div>
+                                </div>
+
+
+                                
+
+                                <div class="form-group row">
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="pregnant">Pregnant at present:</label><br>
+                                        <select id="pregnant" class="form-control">
+                                            <option>--select--</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="pregnant">Registered for ANC:</label><br>
+                                        <select id="pregnant" class="form-control">
+                                            <option>--select--</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="target">Breast feeding at present:</label>
+                                        <select id="Drugs" class="form-control">
+                                            <option>--select--</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+    
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="neck">Last menstruation date:</label>
+                                        <input class="form-control" id="neck" type="date">
+                                    </div>
+    
+    
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="comment"> Social Factors:</label><br>
+                                    <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                            <label *ngFor="let socialfactor of socialfactors" class="col-md-2 col-xs-2">
+                                                <input  type="checkbox" name="comorbid" value="">
+                                                {{socialfactor.configDesc}}
+                                            </label>
+                                                    </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <button type='submit'>Submit</button>
+                                
+    
+                            </form> 
+
+            
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <!-- <div class="form-group">
+    
+        <span  name="submit" class="btn btn-info btn-md">submit</span>
+
+    </div> -->
+
+    
+
+</div>
