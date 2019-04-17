@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import { ReplaySubject } from 'rxjs';
+
+
 
 @Injectable()
 export class AuthenticationService {
+    private _loggedIn: ReplaySubject<boolean> = new ReplaySubject<boolean>();
+
     constructor(private http: HttpClient) {
         
      }
@@ -27,10 +32,12 @@ export class AuthenticationService {
                // return "0";
                 //TEST END
                 if (user.errorCode == 0) {
-                   // console.log(user);
+                    console.log(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user.responseObject));
                     localStorage.setItem('UserSession', JSON.stringify(user.sessionId));
+                    this._loggedIn.next( true );
+
                 }
 
                 return user.errorCode;
@@ -41,6 +48,13 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         localStorage.removeItem('UserSession');
+        this._loggedIn.next( false );
+
         
     }
+    public getUserLoggedInObs(): Observable<boolean> {
+        return this._loggedIn.asObservable();
+      }
+    
+    
 }

@@ -14,15 +14,20 @@
         <li class="active"><a routerLink="home">Home</a></li>
         <!-- <li class=""><a routerLink="about">About Us</a></li>
         <li class=""><a routerLink="contact">Contact Us</a></li> -->
-        <li class=""><a routerLink="admission">Admission</a></li>
-        <li class=""><a routerLink="discharge">Discharge</a></li>
+        <li class=""><a routerLink="about">NRC</a></li>
+        <!-- <li class=""><a routerLink="in-patient">In patient</a></li>
+        <li class=""><a routerLink="search">search</a></li> -->
 
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <li class=""><a routerLink="login">Sign in</a></li>
-
-        <!-- <li><a href=""><span class="glyphicon glyphicon-user"  data-toggle="modal" data-target="#myModal"> Sign-in</span></a></li> -->
-      </ul>
+      <ul class="nav navbar-nav navbar-right" style="color:white">
+            <li class=""><a routerLink="login"></a></li>
+             <a href  routerLink="logout" *ngIf="currentUser | async">
+                <span class="glyphicon glyphicon-user"></span>  <b>Logout
+             </b></a>
+            <a href  *ngIf="!(currentUser | async)" routerLink="login">
+                <span class="glyphicon glyphicon-user"></span>
+              <b>Login</b></a> 
+          </ul>
     </div>
   </div>
 </nav>

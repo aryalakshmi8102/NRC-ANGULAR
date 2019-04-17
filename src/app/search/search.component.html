@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center">Search</h3>
+  </div>
+  <section class="search-sec">
+      <div class="container">
+          <form  #searchForm='ngForm' (ngSubmit)="onSubmitSearch(searchForm.value)" novalidate="novalidate">
+                {{searchForm.value | json}}
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="row">
+                          <div class=" col-md-2">
+                              <input type="number" class="form-control search-slt"
+                                  placeholder="search by UH ID / OPD ID" name="searchopd" ngModel>
+
+                          </div>
+                          <div class=" col-md-2">
+                              <input type="number" class="form-control search-slt" placeholder="search by mother id"
+                                  name="searchmotherid" ngModel>
+
+                          </div>
+                          <div class=" col-md-2 ">
+                              <input type="number" class="form-control search-slt" placeholder="Search by contactno"
+                                  name="searchcontact" ngModel>
+                          </div>
+                          <div class=" col-md-3 ">
+                              <input type="text" class="form-control search-slt" placeholder="Search by  childid"
+                                  name="searchchildid" ngModel>
+                          </div>
+
+
+                          <div class=" col-md-2">
+                              <button type="submit" class="btn btn-primary wrn-btn">Search</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </section><br>
+
+  <div class="row">
+      <!-- <h4 style="color:#FFF;text-align: right"><a href="admission.html">Create New Admission</a></h4> -->
+  </div>
+</div>
+
+
+<section class="pt-2">
+
+
+  <div class="col-md-12" >
+
+
+      
+
+
+      <div class="card col-md-3" style="background-color:#ffff;border: 1px" *ngFor="let child of childList">
+          <div class="card-body"
+              style="padding-left:50px; padding-top:20px;padding-bottom:10px;text-align: justify">
+
+
+
+
+
+              <ul class="list-unstyled" style="border-radius: 5px;" >
+                  <li class="">OPD ID & UH ID :{{child.uhId}}</li>
+                  <li class="">Date of birth:{{child.dob}}</li>
+                  <li class="">Mobile Number:{{child.mobileNumber}}</li>
+                  <li class="">Name:Rishi</li>
+                  <li class="list-inline-item"> OPD Visited Date:{{child.lastAdmittedDate}}}</li>
+                 
+              </ul>
+
+
+
+          </div>
+      </div>
+  </div>
+ 
+ 
+
+
+
+
+
+
+</section>

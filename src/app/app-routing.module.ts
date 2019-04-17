@@ -7,6 +7,9 @@ import { AdmissionComponent } from './admission/admission.component';
 import { DischargeComponent } from './discharge/discharge.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './login/logout.component';
+import { InPatientComponent } from './in-patient/in-patient.component';
+import { SearchComponent } from './search/search.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,9 +17,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admission', component: AdmissionComponent},
-  { path: 'discharge', component: DischargeComponent},
+  { path: 'discharge/:id', component: DischargeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
+  { path: 'in-patient', component:InPatientComponent},
+  { path: 'search', component:SearchComponent},
 ];
 
 @NgModule({

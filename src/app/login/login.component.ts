@@ -52,13 +52,24 @@ export class LoginComponent implements OnInit {
     }
     //console.log(this.f);
     this.loading = true;
+
+    //TEST START
+    //var response:string[] = [];
+               
+    //localStorage.setItem('currentUser', JSON.stringify(response));
+    //localStorage.setItem('UserSession', JSON.stringify('0E7A0AA4037707FD9DACA104C64A08C8'));
+    //this.loading = false;
+    //this.router.navigateByUrl('/about');
+    //return true;
+    //TEST END
+
     this.authenticationService.login(this.f.username.value, this.f.password.value)
         .pipe(first())
         .subscribe(
             user => {
               this.loading = false;
               if(user == 0){
-                this.router.navigateByUrl('/admission');
+                this.router.navigateByUrl('/about');
               }else{
                 this.authError = true;
               }

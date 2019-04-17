@@ -3,7 +3,7 @@
 
 <div class="container">
 
-  <h3 style="color:#FFF;text-align: center">DISCHARGE</h3>
+  <h3 style="color:#FFF;text-align: center">Discharge</h3>
 
 
 
@@ -27,25 +27,26 @@
             <div class="header1">
               <div class="col-md-4">
                   <ul>
-                      <li> <b>Name: </b>Ramu</li>
-                      <li> <b>UH ID/ OPD ID: </b>345214</li>
+                       
+                      <li> <b>Name: </b>{{admittedchilds.childName}}</li>
+                      <li> <b>UH ID/ OPD ID: </b>{{admittedchilds.uhId}}</li> 
+                    
+
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                  <ul>
+                       <li> <b>IP No: </b>{{ ipId }}</li>
+                      <li> <b>SAM No: </b>{{admittedchilds.samNumber}}</li>
+
 
 
                   </ul>
               </div>
               <div class="col-md-4">
                   <ul>
-                      <li> <b>IP No: </b>8125732</li>
-                      <li> <b>SAM Id: </b>52346/18/19</li>
-
-
-
-                  </ul>
-              </div>
-              <div class="col-md-4">
-                  <ul>
-                      <li> <b>RCH Id: </b>3456789123</li>
-                      <li> <b>Contact No: </b>9543568906</li>
+                       <li> <b>RCH ID: </b>{{admittedchilds.rchId}}</li>
+                      <li> <b>Contact No: </b>{{admittedchilds.mobileNumber}}</li> 
                   </ul>
               </div>
           </div>
@@ -70,26 +71,28 @@
           <div id="collapseTwo" class="panel-collapse collapse collapse in ">
               <div class="panel-body">
 
-                      <form>
-                           
+                   
+                            <form #dischargeForm='ngForm' (ngSubmit)="onSubmitDischarge(dischargeForm.value)" >
+                                  
+                                   
 
                           <div class="form-group row">
 
                               <div class="col-md-3 col-xs-3">
                                   <label for="ex2">Admission Date</label>
-                                  <input class="form-control" id="adate" type="text">
+                                  <input class="form-control" name="adate" value="{{admittedchilds.admissionDate}}" ngModel  disabled >
                               </div> 
                               <div class="col-md-3 col-xs-3">
-                                  <label for="ex2"> Admission Weight</label>
-                                  <input class="form-control" id="aweight" type="text" placeholder="7.0 kg">
+                                  <label for="ex2"> Admission Weight (kg)</label>
+                                  <input class="form-control" name="aweight" value="{{admittedchilds.admissionWeight}}" type="text"  [(ngModel)]="aweight" disabled>
                               </div>
                               <div class="col-md-3 col-xs-3">
-                                  <label for="ex2">Admission Height</label>
-                                  <input class="form-control" id="aheight" type="text" placeholder="70 cm" >
+                                  <label for="ex2">Admission Height (cm)</label>
+                                  <input class="form-control" name="aheight" type="text" value="{{admittedchilds.admissionHeight}}" ngModel  disabled >
                               </div>
                               <div class="col-md-3 col-xs-3">
                                   <label for="ex2"> Admission SD</label>
-                                  <input class="form-control" id="asd" type="text"  placeholder="-3.2">
+                                  <input class="form-control" name="asd" type="text"  ngModel  disabled>
                               </div>
 
 
@@ -97,20 +100,21 @@
                           <div class="form-group row">
 
                             <div class="col-md-3 col-xs-3">
-                               <label for="ex2">Discharge Date</label>
-                               <input class="form-control" id="ddate" type="text" placeholder="02/03/2019">
+                               <label for="ex2">Discharge Date*</label>
+                               <input class="form-control" name="ddate" type="date"   ngModel  required 
+                               (input)="ondischargeChange($event.target.value)"   >
                            </div>
                            <div class="col-md-3 col-xs-3">
-                               <label for="ex2"> Discharge Weight*</label>
-                               <input class="form-control" id="dweight" type="text" placeholder="8.2 kg">
+                               <label for="ex2"> Discharge Weight*(kg)</label>
+                               <input class="form-control" name="dweight" type="text"  [(ngModel)]="dweight"  required>
                            </div>
                            <div class="col-md-3 col-xs-3">
-                               <label for="ex2">Discharge Height*</label>
-                               <input class="form-control" id="dheight" type="text" placeholder="72 cm">
+                               <label for="ex2">Discharge Height*(cm)</label>
+                               <input class="form-control" name="dheight" type="text" ngModel  required>
                            </div>
                            <div class="col-md-3 col-xs-3">
-                               <label for="ex2">  Discharge SD*</label>
-                               <input class="form-control" id="dsd" type="text"  placeholder="-2.2">
+                               <label for="ex2">  WFL SD</label>
+                               <input class="form-control" name="dsd" type="text" ngModel  required>
                            </div>
                            
 
@@ -118,82 +122,75 @@
                        </div>
                        <div class="form-group row">
                         <div class="col-md-3 col-xs-3">
-                                <label for="ex2">Duration Of Stay</label>
-                                <input class="form-control" id="dstay" name="" placeholder="34 Days">
+                                <label for="ex2">Duration of Stay*</label>
+                                <input class="form-control" name="dstay" value="adate-ddate"  [(ngModel)]="dstay"  required>
                             </div>
                     
                     <div class="col-md-3 col-xs-3">
-                            <label for="ex2">Average weight Gain*</label>
-                            <input class="form-control" id="weightgain" type="text" placeholder="35 gm per day">
+                            <label for="ex2">Average Weight Gain*(gm/day)</label>
+                            <input class="form-control" name="weightgain" type="number"  value="" ngModel  required>
                         </div> 
                     
 
                 </div>
+
+
                 <div class="form-group">
-                  <label for="comment">Comorbid Condition*:</label><br>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid"
-                              value="Pneumonia">Pneumonia</label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid"
-                              value="Gastroenteritis">Gastroenteritis
-                      </label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid" value="Sepsis">Sepsis</label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid" value="CHD">CHD</label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid" value="CP">CP</label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid" value="Renal Disease">Renal
-                          Disease</label>
-                  </div>
-                  <div class="checkbox-inline">
-                      <label><input type="checkbox" name="comorbid"
-                              value="Meningitis">Meningitis</label>
-                  </div><br>
+                    <label for="comment"> Comorbid Condition:</label><br>
+                    <div   *ngIf="discomorbids" class="col-md-12 col-xs-12">
+                            <label *ngFor="let discomorbid of discomorbids" class="col-md-2 col-xs-2">
+                                <input  type="checkbox" name="discomorbids" value="" ngModel  required>
+                                {{discomorbid.configDesc}}
+                            </label>
+                                    </div>
 
-                  
-                  
-                     
-                     
+            </div><br><br><br>
 
-              </div>
+
+
+
+
+
+
+
+
 
               <div class="form-group row">
 
                 <div class="col-md-4 col-xs-4">
                     <label for="ex2">Clinical Impression*</label>
-                    <select id="clinicalimpression" class="form-control mal-nourish">
-                        <option>--Select--</option>
-                        <option>primary</option>
-                        <option>Secondary</option>
+                    <select name="clinicalimpression" class="form-control" ngModel  required>
+                       
+                        <option value="Primary">Primary SAM</option>
+                        <option value="Secondary">Secondary SAM</option>
 
 
                     </select>
                 </div>
+                
+
+
+
                 <div class="col-md-2 col-xs-2">
-                    <label for="ex2">Outcome*</label>
-                    <select id="outcome" class="form-control mal-nourish">
-                        <option>--Select--</option>
-                        <option>Improved</option>
-                        <option>LAMA</option>
-                        <option>Death</option>
-                        <option>Referred</option>
+                    <label for="outcomes">Outcome*</label>
+                    <select    name="outcomes" *ngIf="outcomes"  class="form-control" ngModel  required>
+                        <option  *ngFor="let outcome of outcomes" [ngValue] ="outcome">{{outcome.configCode}}</option>
                        
 
-
                     </select>
                 </div>
+
+
+
+
+
+
+
+
                 <div class="col-md-6 col-xs-6">
 
-                    <label for="comment">Treatment Given*:</label>
-                    <textarea class="form-control" rows="3" id="treatmentcomment" placeholder=" "></textarea>
+                    <label for="comment">Treatment Given*</label>
+                    <textarea class="form-control" rows="3" name="treatmentcomment" ngModel  required></textarea>
                 </div>
 
 
@@ -207,19 +204,155 @@
 
               <div class="col-md-6 col-xs-6">
 
-                  <label for="comment">Medical Advice*:</label>
-                  <textarea class="form-control" rows="3" id="cmedicalcomment" placeholder=" "></textarea>
+                  <label for="comment">Medical Advice</label>
+                  <textarea class="form-control" rows="3" name="medicalcomment" ngModel  required></textarea>
               </div>
               <div class="col-md-6 col-xs-6">
 
-                  <label for="comment">Dietary Advice*:</label>
-                  <textarea class="form-control" rows="3" id="dietarycomment" placeholder=" "></textarea>
+                  <label for="comment">Dietary Advice</label>
+                  <textarea class="form-control" rows="3" name="dietarycomment" ngModel  required></textarea>
               </div>
 
           </div>
+         
+
+
+
+                <div class="form-group row">
+                        <div class="col-md-3 col-xs-3">
+                                <label for="ex2"> NRC Follow-up Dates*</label>
+                               
+                            </div>
+            
+                    
+                    <div class="col-md-2 col-xs-2">
+                        <label for="ex2"> First</label>
+                        <input class="form-control" name="" value="22/04/2019" disabled><br>
+                    </div>
+                    <div class="col-md-2 col-xs-2">
+                        <label for="ex2"> Second</label>
+                        <input class="form-control" name="" value="30/04/2019" disabled><br>
+                    </div>
+                    <div class="col-md-2 col-xs-2">
+                        <label for="ex2">Third</label>
+                        <input class="form-control" name="" value="15/05/2019" disabled><br>
+                    </div>
+                    <div class="col-md-2 col-xs-2">
+                        <label for="ex2">Fourth</label>
+                        <input class="form-control" name="" value="15/06/2019" disabled>
+                    </div>
+            
+                </div>
+
+
+
+                <div class="form-group row">
+
+            <div class="col-md-3 col-xs-3">
+
+                <label for="ex2"> Community based  Follow-up Dates*</label>
+
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2"> First</label>
+                <input class="form-control" name="" value="23/04/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2"> Second</label>
+                <input class="form-control" name="" value="30/04/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2">Third</label>
+                <input class="form-control" name="" value="07/05/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2">Fourth</label>
+                <input class="form-control" name="" value="14/05/2019" disabled >
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col-md-3 col-xs-3">
+
+              
+
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2"> Fifth</label>
+                <input class="form-control" name="" value="29/05/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2"> Sixth</label>
+                <input class="form-control" name="" value="13/06/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2">Seventh</label>
+                <input class="form-control" name="" value="13/07/2019" disabled><br>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <label for="ex2">Eighth</label>
+                <input class="form-control" name="" value="12/08/2019" disabled>
+            </div>
+
+        </div>
+        
+
+
+    
+
+
+    <div class="form-group row">
+
+        <div class="col-md-4 col-xs-4">
+           <label for="ex2">Mother's Weight (kg) </label>
+           <input class="form-control" name="modweight" type="text"  [(ngModel)]="modweight"  required>
+       </div>
+       <div class="col-md-4 col-xs-4">
+           <label for="ex2">Mother's Height(cm)</label>
+           <input class="form-control" name="modheight" type="text" [(ngModel)]="modheight"  required>
+       </div>
+       <div class="col-md-4 col-xs-4">
+           <label for="ex2">Mother's MUAC</label>
+           <input class="form-control" name="modmuac" type="text" ngModel  required>
+       </div>
+
+
+       
+       
+
+
+   </div>
+   <div class="form-group row">
+
+      <div class="col-md-4 col-xs-4">
+         <label for="ex2">Mother's BMI </label>
+         <input class="form-control" name="mobmi" type="text" value="{{ ((modweight*10000)/(modheight*modheight)) | number : '.2-2' }}"  ngModel  required>
+     </div>
+
+
+     <div class="col-md-4 col-xs-4">
+        <label for="outcomes">At Medical Risk </label>
+        <select    name="medicalrisks" *ngIf="medicalrisks"  class="form-control" ngModel  required>
+            <option  *ngFor="let medicalrisk of medicalrisks"  [ngValue] = "medicalrisk">{{ medicalrisk.configCode}}</option>
+           
+
+        </select>
+    </div>
+
+    
+    
+     
+  </div>
+  <!-- <button type='submit'>Submit</button> -->
+  <div class="form-group">
+        <input type="submit" class="btnContactSubmit btnForgetPwd" value="Submit" />
+        <a routerLink="/about" class="btnForgetPwd">Cancel</a>
+       
+    </div>
   
                           </form>
-              
 
 
               </div>
@@ -227,154 +360,10 @@
       </div>
 
 
-
-
-
-      <div class="panel panel-info">
-          <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
-              <h4 class="panel-title accordion-toggle">
-                  Followup Details
-              </h4>
-
-          </div>
-          <div id="collapseFour" class="panel-collapse collapse collapse in ">
-              <div class="panel-body">
-                     
-
-                   <form>
-                    <div class="form-group row">
-
-
-
-
-
-                      <div class="col-md-3 col-xs-3">
-
-                          <label for="ex2"> Community based  Follow-up Dates*</label>
-
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2"> First</label>
-                          <input class="form-control" name="" placeholder="09/03/2019"><br>
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2"> Second</label>
-                          <input class="form-control" name="" placeholder="17/03/2019" ><br>
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2">Third</label>
-                          <input class="form-control" name="" placeholder="02/04/2019" ><br>
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2">Fourth</label>
-                          <input class="form-control" name="" placeholder="02/05/2019" >
-                      </div>
-
-                  </div>
-
-                  <div class="form-group row">
-                          <div class="col-md-3 col-xs-3">
-                                  <label for="ex2"> NRC Follow-up Dates*</label>
-                                 
-                              </div>
-
-                      
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2"> First</label>
-                          <input class="form-control" name="" placeholder="02/03/2019"><br>
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2"> Second</label>
-                          <input class="form-control" name="" placeholder="02/04/2019"><br>
-                      </div>
-                      <div class="col-md-2 col-xs-2">
-                          <label for="ex2">Third</label>
-                          <input class="form-control" name="" placeholder="02/05/2019"><br>
-                      </div>
-                      <div class="col-md-3 col-xs-2">
-                          <label for="ex2">Fourth</label>
-                          <input class="form-control" name="" placeholder="02/06/2019">
-                      </div>
-
-                  </div>
-
-
-                   </form>
-                  
-              
-              </div>
-          </div>
-      </div>
-
-      <div class="panel panel-info">
-          <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive">
-              <h4 class="panel-title accordion-toggle">
-                  Mother Details & Demography 
-             </h4>
-
-          </div>
-          <div id="collapseFive" class="panel-collapse collapse collapse in">
-              <div class="panel-body">
-                <form>
-                    <div class="form-group row">
-
-                        <div class="col-md-4 col-xs-4">
-                           <label for="ex2">Weight (kg)* </label>
-                           <input class="form-control" id="modweight" type="text" placeholder="02/03/2019">
-                       </div>
-                       <div class="col-md-4 col-xs-4">
-                           <label for="ex2"> Height(cm)*</label>
-                           <input class="form-control" id="modheight" type="text" placeholder="8.2 kg">
-                       </div>
-                       <div class="col-md-4 col-xs-4">
-                           <label for="ex2">MUAC*</label>
-                           <input class="form-control" id="modmuac" type="text" placeholder="72 cm">
-                       </div>
-
-
-                       
-                       
-
-
-                   </div>
-                   <div class="form-group row">
-
-                      <div class="col-md-4 col-xs-4">
-                         <label for="ex2">BMI* </label>
-                         <input class="form-control" id="mobmi" type="text" placeholder="02/03/2019">
-                     </div>
-                    
-                     <div class="col-md-4 col-xs-4">
-                        <label for="ex2"> At Medical Risk *</label>
-                        <select id="outcome" class="form-control mal-nourish">
-                            <option>--Select--</option>
-                           
-                           
-    
-    
-                        </select>
-                    </div>
-                     
-                  </div>
-                  <button type='submit'>Submit</button>
-                </form>
-
-
-                      
-
-          
-              </div>
-          </div>
-      </div>
 
   </div> 
 
-  <!-- <div class="form-group">
-  
-      <span  name="submit" class="btn btn-info btn-md">submit</span>
-
-  </div> -->
-
+ 
   
 
 </div>

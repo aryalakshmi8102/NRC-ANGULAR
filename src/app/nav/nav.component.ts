@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import { AuthenticationService } from '../_services/authentication.service';
+
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  currentUser:Observable<boolean>;
+  
 
-  constructor() { }
+  constructor(
+    private authenticationService: AuthenticationService
+
+  ) { }
 
   ngOnInit() {
+    this.currentUser = this.authenticationService.getUserLoggedInObs();
   }
 
 }

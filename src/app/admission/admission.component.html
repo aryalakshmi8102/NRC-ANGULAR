@@ -3,11 +3,11 @@
 
 <div class="container">
 
-    <h3 style="color:#FFF;text-align: center">NEW ADMISSION</h3>
+    <h3 style="color:#FFF;text-align: center">New Admission</h3>
 
-<div class="pull-right">
+<!-- <div class="pull-right">
         <a [routerLink]="['../logout']" class="btn btn-link">Logout</a>
-</div>
+</div> -->
   
 
 
@@ -23,36 +23,39 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse collapse in">
                 <div class="panel-body">
-
+                   
                     
-                        <form>
+                    <form #detailsForm='ngForm' ngNativeValidate>
+
+                      
+
+
           
-                                <div class="form-group row">
-    
+                         <div class="form-group row">
+
                                     
                                     <div class="col-md-3 col-xs-3">
                                         <label for="uhid">UH ID/ OPD ID*</label>
-                                        <input class="form-control" id="uhid" type="text" placeholder="8389456" required
-                                            >
+                                        <input class="form-control" name="uhid" type="number" minlength="12" maxlength="12"
+                                          ngModel >
                                     </div>
                                     
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="ip">IP No*</label>
-                                        <input class="form-control" id="ip" type="text" placeholder="8389456"
-                                            >
+                                        <label for="ip">IP No.*</label>
+                                        <input class="form-control" name="ip" type="number"   required ngModel >
                                     </div>
                                     <div class="col-md-3 col-xs-3">
                                             <label for="ex2">Unit*</label>
-                                            <select *ngIf="units" id="" class="form-control" >
-                                                <option *ngFor="let unit of units">{{unit.configDesc}}</option>
+                                            <select *ngIf="units" name="units" class="form-control" ngModel  required>
+                                                <option *ngFor="let unit of units" [ngValue] = "unit">{{unit.configCode}}</option>
                                                
                                                
                                             </select>
                                         </div>
                                         <div class="col-md-3 col-xs-3">
                                                 <label for="ex2">Ward*</label>
-                                                <select *ngIf="wards" id="" class="form-control" >
-                                                        <option *ngFor="let ward of wards">{{ward.configDesc}}</option>
+                                                <select *ngIf="wards" name="wards" class="form-control" ngModel  required>
+                                                        <option *ngFor="let ward of wards" [ngValue] = "ward">{{ward.configCode}}</option>
                                                        
                                                        
                                                     </select>
@@ -77,9 +80,9 @@
                                       
                                             
                                         <div class="col-md-4 col-xs-4">
-                                                <label for="ex2">Referred  From</label>
-                                                <select *ngIf="referreds" id="" class="form-control">
-                                                        <option *ngFor="let referred of referreds">{{referred.configDesc}}</option>
+                                                <label for="ex2">Referred  From*</label>
+                                                <select *ngIf="referreds" name="referred" class="form-control" ngModel  required>
+                                                        <option *ngFor="let referred of referreds" [ngValue] = "referred">{{referred.configCode}}</option>
                                                        
                                                        
                                                     </select>
@@ -90,13 +93,13 @@
 
                                             
                                             <div class="col-md-4 col-xs-4">
-                                                    <label for="ex2">Referred By</label>
-                                                    <input class="form-control" id="height" type="text" placeholder="Sunda">
+                                                    <label for="ex2">Referred By*</label>
+                                                    <input class="form-control" name="referredby" type="text"   ngModel  required>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4">
-                                                        <label for="ex2">Type Of Admission</label>
-                                                        <select  *ngIf="admissiontypes" id="" class="form-control">
-                                                                <option *ngFor="let admissiontype of admissiontypes">{{admissiontype.configDesc}}</option>
+                                                        <label for="ex2">Type of Admission*</label>
+                                                        <select  *ngIf="admissiontypes" name="admissiontype" class="form-control"  ngModel  required>
+                                                                <option *ngFor="let admissiontype of admissiontypes" [ngValue] = "admissiontype">{{admissiontype.configCode}}</option>
                                                                 
                                                                 
                                                             </select>
@@ -106,10 +109,7 @@
                                                    
 
                                 </div>
-                            </form>
-
-
-
+                            </form> 
 
 
 
@@ -124,58 +124,70 @@
 
 
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse ">
+            <div id="collapseTwo" class="panel-collapse collapse  collapse in">
                 <div class="panel-body">
+                       
 
-                        <form>
+                        <form  #childForm='ngForm' ngNativeValidate>
                                 <div class="form-group row">
                                     <div class="col-md-3 col-xs-3">
                                         <label for="rch">RCH ID</label>
-                                        <input class="form-control" id="rch" type="text">
+                                        <input class="form-control" name="rch" type="number" ngModel>
                                     </div>
 
     
                                     <div class="col-md-3 col-xs-3">
                                         <label for="name">Name*</label>
-                                        <input class="form-control" id="name" type="text">
+                                        <input class="form-control" name="childname" type="text" ngModel  required>
                                     </div>
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="dob">Date Of Birth*</label>
-                                        <input class="form-control" id="dob" type="date">
+                                        <label for="dob">Date of Birth*</label>
+                                        <input class="form-control" name="childdob" type="date" ngModel  required>
                                     </div>
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="age">Age*</label>
-                                        <input class="form-control" id="age" type="text">
+                                        <label for="age">Age</label>
+                                        <input class="form-control" name="childage" type="number" ngModel  required>
                                     </div>
                                     
     
                                 </div>
                                  <div class="form-group row">
-                                        <div class="col-md-2 col-xs-2">
+                                        <div class="col-md-3 col-xs-3">
                                                 <label for="sex">Sex*</label>
-                                                <select id="sex" class="form-control mal-nourish">
-                                                    <option>--Select--</option>
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                <select name="childsex" class="form-control" ngModel  required>
+                                                  
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
                                                     <option>Others</option>
+                                                    
             
                                                 </select>
                                             </div>
-                                    <div class="col-md-4 col-xs-4">
-                                        <label for="address">Address*:</label>
-                                        <textarea class="form-control" rows="3" id="address"></textarea>
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="contact">Contact No*</label>
-                                        <input class="form-control" id="contact" type="text">
-                                    </div>
+                                   
+                                    
                                     <div class="col-md-3 col-xs-3">
                                         <label for="category">Category* </label>
-                                        <select id="category" class="form-control mal-nourish">
-                                            <option>--Select--</option>
+                                        <select name="category" class="form-control" ngModel>
+                                           
                                             <option>BPL</option>
                                             <option>APL</option>
     
+    
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="religion">Religion*</label>
+                                        <select   *ngIf="religions"  name="religion" class="form-control " ngModel >
+                                            <option *ngFor="let religion of religions" [ngValue] = "religion">{{religion.configCode}}</option>
+                                        
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="caste">Caste*</label>
+                                        <select    *ngIf="castes" name="caste" class="form-control" ngModel>
+                                            <option  *ngFor="let caste of castes" [ngValue] = "caste">{{caste.configCode}}</option>
+                                        
     
                                         </select>
                                     </div>
@@ -183,20 +195,15 @@
                                 <div class="form-group row">
     
     
+                                   
+                                   
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="religion">Religion*</label>
-                                        <select   *ngIf="religions"  id="religion" class="form-control ">
-                                            <option *ngFor="let religion of religions">{{religion.configDesc}}</option>
-                                        
-                                        </select>
+                                        <label for="contact">Contact No.*</label>
+                                        <input class="form-control" name="contactno" type="tel" ngModel  required>
                                     </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="caste">Caste*</label>
-                                        <select    *ngIf="castes" id="caste" class="form-control">
-                                            <option  *ngFor="let caste of castes">{{caste.configDesc}}</option>
-                                           
-    
-                                        </select>
+                                    <div class="col-md-4 col-xs-4">
+                                        <label for="address">Address*</label>
+                                        <textarea class="form-control" rows="3" name="childaddress"  ngModel  required></textarea>
                                     </div>
     
     
@@ -221,61 +228,37 @@
                 </h4>
 
             </div>
-            <div id="collapseFour" class="panel-collapse collapse ">
+            <div id="collapseFour" class="panel-collapse collapse collapse in">
                 <div class="panel-body">
-                       
+                  
 
-                        <form>
+                    <form  #caseForm='ngForm' ngNativeValidate>
                             <div class="form-group">
                                     <label for="comment">Admission Criteria*:</label><br>
                                     <div   *ngIf="criterias" class="col-md-12 col-xs-12">
-                                            <label *ngFor="let criteria of criterias" class="col-md-2 col-xs-2">
-                                                <input  type="checkbox" name="criteria" value="">
-                                                {{criteria.configDesc}}
+                                            <label *ngFor="let criteria of criterias" class="col-md-3 col-xs-3">
+                                                <input  type="checkbox" name="criteria" value=""   ngModel  required>
+                                                {{criteria.configCode}}
                                             </label>
                                                     </div>
 
-                            </div>
-                                <!-- <div class="form-group">
-                                    <label for="comment">Admission Criteria*:</label><br>
-                                    <div class="checkbox-inline">
-                                        <label><input type="checkbox" name="criteria" value="">WFL/WFH < -3Z </label>
-                                                </div>
-                                                
-                                                <div class="checkbox-inline">
-                                                    <label><input type="checkbox" name="criteria" value="">MUAC
-                                                        <115mm </label> </div>
-                                    <div class="checkbox-inline">
-                                                        <label><input type="checkbox" name="criteria" value="">Severe
-                                                            Wasting</label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label><input type="checkbox" name="criteria" value="">B/L Edema </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label><input type="checkbox" name="criteria" value="">Others</label>
-                                    </div>
-                                    <div class="checkbox-inline">
-    
-    
-    
-                                        <input type="text" name="criteria" placeholder="" disabled>
-    
-                                    </div>
-    
-                                </div> -->
-                               
+
+                                                    
+
+                            </div><br><br><br>
+                                
 
                                 <div class="form-group">
                                     <label for="comment"> Comorbid Condition:</label><br>
                                     <div   *ngIf="criterias" class="col-md-12 col-xs-12">
-                                            <label *ngFor="let comorbid of comorbids" class="col-md-2 col-xs-2">
-                                                <input  type="checkbox" name="comorbid" value="">
-                                                {{comorbid.configDesc}}
+                                            <label *ngFor="let comorbid of comorbids" class="col-md-3 col-xs-3">
+                                                <input  type="checkbox" name="
+                                                " value="" ngModel   required>
+                                                {{comorbid.configCode}}
                                             </label>
                                                     </div>
 
-                            </div>
+                            </div> <br><br><br>
 
 
                                
@@ -284,27 +267,27 @@
                                 <div class="form-group row">
     
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="date">Admission Date:</label><br>
-                                        <input class="form-control" id="date" type="date" >
+                                        <label for="date">Admission Date*</label><br>
+                                        <input class="form-control" name="admissiondate" type="date" ngModel  required >
     
                                     </div>
                                     <div class="col-md-3 col-xs-3">
-                                            <label for="date">Admission Height:</label><br>
-                                            <input class="form-control" id="date" type="text" >
+                                            <label for="date">Admission Height*(cm)</label><br>
+                                            <input class="form-control" name="admissionheight" type="number" ngModel  required >
         
                                         </div>
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="weight">Admission weight</label>
-                                        <input class="form-control" id="height" type="text">
+                                        <label for="weight">Admission Weight*(kg)</label>
+                                        <input class="form-control" name="admissionweight" type="number"  [(ngModel)]="admissionweight"  required >
                                     </div>
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="target">Target weight</label>
-                                        <input class="form-control" id="weight" type="text">
+                                        <label for="target">Target Weight*(kg)</label>
+                                        <input class="form-control" name="targetweight"  value="{{1.15*admissionweight | number : '.2-2'}}" type="number" ngModel required>
                                     </div>
     
     
                                 </div>
-                            </form>
+                            </form> 
 
                     
                 
@@ -325,27 +308,31 @@
 
 
 
-                        <form #form='ngForm' ngNativeValidate (ngSubmit)='submitForm(form.value)'>
+                        <form #userForm='ngForm'   (ngSubmit)="onSubmitAdmission(userForm.value,childForm.value,caseForm.value,detailsForm.value)" >
+                            <!-- for validation pls add ngNativeValidate in form tag -->
+                          
+ 
                                 <div class="form-group row">
                                     <div class="col-md-3 col col-xs-3">
-                                        <label for="name">Name</label>
-                                        <input  type='text' class='form-control'  [ngModel]='mothername' name='mothername' required>
+                                        <label for="name">Name*</label>
+                                        <input  type='text' class='form-control'   ngModel  name='mothername'  required>
                                     </div>
                                     <div class="col-md-3 col-xs-3">
-                                        <label for="dob">Date Of Birth</label>
-                                        <input type='text' class='form-control' [ngModel]='motherdob' name='motherdob'  required>
+                                        <label for="dob">Date of Birth</label>
+                                        <input type='date' class='form-control'    ngModel  name='motherdob'  >
                                     </div>
     
                                     <div class="col-md-3  col-xs-3">
-                                        <label for="age">Age</label>
-                                        <input class="form-control" id="motherage" type="text">
-                                    </div>
+                                        <label for="age">Age*</label>
+                                        <input   type="number" class="form-control"   ngModel  name="motherage" required>
+                                    </div> 
+
 
 
                                     <div class="col-md-3 col-xs-3">
                                         <label for="qualifications">Education*</label>
-                                        <select    id="qualifications" *ngIf="qualifications"  class="form-control">
-                                            <option  *ngFor="let qualification of qualifications">{{qualification.configDesc}}</option>
+                                        <select    name="qualifications" *ngIf="qualifications"  class="form-control"  ngModel >
+                                            <option  *ngFor="let qualification of qualifications" [ngValue] = "qualification">{{qualification.configCode}}</option>
                                            
     
                                         </select>
@@ -355,28 +342,29 @@
                                     
     
                                 </div>
+                                <hr>
 
 
 
-                                <div class="form-group row">
+                                 <div class="form-group row">
     
                                         <div class="col-md-3 col-xs-3">
-                                                <label for="weight">Weight</label>
-                                                <input class="form-control" id="motherweight" type="text">
+                                                <label for="weight">Weight (kg)</label>
+                                                <input class="form-control" name="motherweight" type="number" [(ngModel)]="motherweight">
                                             </div>
                                             <div class="col-md-3 col-xs-3">
-                                                <label for="height">Height</label>
-                                                <input class="form-control" id="motherheight" type="text">
+                                                <label for="height">Height (cm)</label>
+                                                <input class="form-control" name="motherheight" type="number"  [(ngModel)]= "motherheight" >
                                             </div>
             
             
                                             <div class="col-md-3 col-xs-3">
                                                 <label for="bmi">BMI</label>
-                                                <input class="form-control" id="motherbmi" type="text" disabled>
+                                                <input class="form-control" name="motherbmi"   value= "{{ ((motherweight*10000)/(motherheight*motherheight)) | number : '.2-2' }}" type="number">
                                             </div>  
                                             <div class="col-md-3 col-xs-3">
                                                     <label for="muac">MUAC</label><br>
-                                                    <input class="form-control" id="muacmother" name="" >
+                                                    <input class="form-control" name="muacmother" type="number"  ngModel  >
                 
                                                 </div>   
                                        
@@ -386,29 +374,104 @@
         
                                     </div>
                                     <div class="form-group row">
-                                            <div class="col-md-2 col-xs-2">
+
+                                            <div class="col-md-3 col-xs-3">
                                                     <label for="hbmother">Hb (g/dl)</label>
-                                                    <input class="form-control" id="hb" type="text">
+                                                    <input class="form-control" name="hbmother" type="number" ngModel>
                                                 </div>
+                                        <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">Fasting Blood Glucose </label>
+                                            <input class="form-control" name="bloodglucose" type="number" ngModel required>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                                
+                                            <label for="ex2">Blood Pressure (systolic)  </label>
+                                            <input class="form-control" name="bloodpressurecp" type="number"   ngModel required>
+                                                
+                                            
+                                        </div>
+    
+                                        <div class="col-md-3 col-xs-3">
+                                                
+                                            <label for="ex2">Blood Pressure (diastolic) </label>
+                                            <input class="form-control" name="bloodpressuredp" type="number"  ngModel required>
+                                                
+                                            
+                                        </div>
+    
+                                       
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                            
                                                 <div class="col-md-3 col-xs-3">
                                                         <label for="neck">Neck Circumference</label>
-                                                        <input class="form-control" id="neck" type="text">
+                                                        <input class="form-control" name="neckmother" type="number" ngModel>
                                                     </div>
                                                     <div class="col-md-2 col-xs-2">
                                                             <label for="ex2">Gravida</label>
-                                                            <input class="form-control" id="gravida" type="text">
+                                                            <input class="form-control" name="gravida" type="number"   ngModel>
                                                         </div>
                                                         <div class="col-md-2 col-xs-2">
                                                                 <label for="para">Para</label>
-                                                                <input class="form-control" id="para" type="text">
+                                                                <input class="form-control" name="para" type="number"  ngModel>
                                                             </div>
                                                             <div class="col-md-3 col-xs-3">
-                                                                    <label for="ex2">No of Children</label>
-                                                                    <input class="form-control" id="noofchildren" type="text">
+                                                                    <label for="ex2">No. of Children</label>
+                                                                    <input class="form-control" name="noofchildren" type="number"  ngModel>
+                                                                </div>
+                                                                <div class="col-md-2 col-xs-2">
+                                                                    <label for="ex2">Family Planning</label>
+                                                                    <select name="familyplanning" class="form-control"  ngModel>
+                                                                       
+                                                                        <option value="true">Yes</option>
+                                                                        <option value="false">No</option>
+                                
+                                
+                                                                    </select>
                                                                 </div>
                     
 
                                     </div>
+                                    <div class="form-group row">
+    
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="pregnant">Pregnant at Present</label><br>
+                                                <select name="pregnant" class="form-control"  ngModel required>
+                                                  
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    </select>
+            
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="neck">Last Menstruation Date</label>
+                                                    <input class="form-control" name="menstruation" type="date"  ngModel>
+                                                </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="reganc">Registered for ANC</label><br>
+                                                <select name="reganc" class="form-control" ngModel required>
+                                                   
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    </select>
+            
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="target">Breastfeeding at Present</label>
+                                                <select name="breastfeeding" class="form-control"  ngModel>
+                                                  
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    </select>
+            
+                                            </div>
+                                            
+            
+            
+                                        </div>
+                                        <hr>
+        
 
 
 
@@ -418,23 +481,17 @@
 
 
                                 <div class="form-group row">
-                                        <div class="col-md-3 col-xs-3">
-                                                <label for="ex2">Family Planning</label>
-                                                <select id="familyplanning" class="form-control">
-                                                    <option>--select--</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-            
-            
-                                                </select>
-                                            </div>
+                                        
+
+
+                                          
     
     
     
                                     <div class="col-md-3 col-xs-3">
                                         <label for="ex2">Medical Problems</label>
-                                        <select id="medicalproblem" class="form-control mal-nourish">
-                                            <option>--Select--</option>
+                                        <select name="medicalproblem" class="form-control" ngModel>
+                                          
                                             <option>No</option>
                                             <option>Yes</option>
     
@@ -442,16 +499,19 @@
     
                                         </select>
                                     </div>
-                                    <div class="col-md-3 col-xs-3">
+                                    
+
+                                        <div class="col-md-6 col-xs-6">
+                                               
+                                                <label for="ex2">Comments</label>
+                                                <input class="form-control" name="medcomment" type="text"  ngModel>
+                                            </div>
     
-                                        <textarea class="form-control" rows="3" id="comment" disabled></textarea>
-    
-                                    </div>
+                                    
                                     <div class="col-md-3 col-xs-3">
                                             <label for="target">Drugs Prescribed</label>
-                                            <select id="Drugs" class="form-control">
-                                                <option>--select--</option>
-                                                <option>Yes</option>
+                                            <select name="Drugs" class="form-control" ngModel>
+                                              <option value="true">Yes</option>
                                                 <option>No</option>
                                                 </select>
         
@@ -460,81 +520,31 @@
                                     
                                    
                                 </div>
+                                <hr>
 
-                                <div class="form-group row">
-                                    <div class="col-md-2 col-xs-2">
-                                        <label for="ex2">Fasting Blood Glucose </label>
-                                        <input class="form-control" id="bloodglucose" type="text">
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                            
-                                        <label for="ex2">Blood pressure(CP)  </label>
-                                        <input class="form-control" id="bloodpressure" type="text" placeholder="Cp">
-                                            
-                                        
-                                    </div>
-
-                                    <div class="col-md-2 col-xs-2">
-                                            
-                                        <label for="ex2">Blood pressure(DP) </label>
-                                        <input class="form-control" id="bloodpressure" type="text" placeholder="Cp">
-                                            
-                                        
-                                    </div>
-
-                                    <div class="col-md-3 col-xs-3">
-                                            <label for="ex2">Present Dietary Choice  </label>
-                                            <select id="Dietary" class="form-control">
-                                                    <option>--select--</option>
-                                                    <option>Veg</option>
-                                                    <option>Non Veg</option>
-                                                    </select>
-    
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="ex2">No. of meals per day </label>
-                                        <input class="form-control" id="meals" type="text">
-                                    </div>
-                                </div>
+                                
 
 
                                 
 
+                                
+
                                 <div class="form-group row">
-    
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="pregnant">Pregnant at present:</label><br>
-                                        <select id="pregnant" class="form-control">
-                                            <option>--select--</option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                            </select>
-    
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="pregnant">Registered for ANC:</label><br>
-                                        <select id="pregnant" class="form-control">
-                                            <option>--select--</option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                            </select>
-    
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="target">Breast feeding at present:</label>
-                                        <select id="Drugs" class="form-control">
-                                            <option>--select--</option>
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                            </select>
-    
-                                    </div>
-                                    <div class="col-md-3 col-xs-3">
-                                        <label for="neck">Last menstruation date:</label>
-                                        <input class="form-control" id="neck" type="date">
-                                    </div>
-    
-    
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Present Dietary Choice  </label>
+                                                <select name="Dietary" class="form-control"  ngModel>
+                                                       
+                                                        <option>Veg</option>
+                                                        <option>Non Veg</option>
+                                                        </select>
+        
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">No. of Meals per Day </label>
+                                            <input class="form-control" name="meals" type="number" ngModel required>
+                                        </div>
+
+
                                 </div>
 
 
@@ -542,27 +552,25 @@
                                     <label for="comment"> Social Factors:</label><br>
                                     <div   *ngIf="criterias" class="col-md-12 col-xs-12">
                                             <label *ngFor="let socialfactor of socialfactors" class="col-md-2 col-xs-2">
-                                                <input  type="checkbox" name="comorbid" value="">
-                                                {{socialfactor.configDesc}}
+                                                <input  type="checkbox" name="social" value=""  ngModel>
+                                                {{socialfactor.configCode}}
                                             </label>
                                                     </div>
 
                             </div>
+ 
 
 
 
 
 
+                                <!-- <button type='submit'>Submit</button> -->
+                                <div class="form-group">
+                                        <input type="submit" class="btnContactSubmit" value="Submit" />
+                                        <a routerLink="/about" class="btnForgetPwd">Cancel</a>
+                                       
+                                    </div>
 
-
-
-
-
-
-
-
-
-                                <button type='submit'>Submit</button>
                                 
     
                             </form> 

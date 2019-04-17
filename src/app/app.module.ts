@@ -17,6 +17,8 @@ import { LogoutComponent } from './login/logout.component';
 import {AuthenticationService} from './_services/authentication.service';
 import {ApiService} from './_services/api.service';
 import { DischargeComponent } from './discharge/discharge.component';
+import { InPatientComponent } from './in-patient/in-patient.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { DischargeComponent } from './discharge/discharge.component';
     AdmissionComponent,
     LoginComponent,
     LogoutComponent,
-    DischargeComponent
+    DischargeComponent,
+    InPatientComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
