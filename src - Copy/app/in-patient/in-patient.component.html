@@ -1,0 +1,45 @@
+
+
+
+
+
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center">Inpatients list</h3>
+  </div>
+  <br>
+
+
+</div>
+<div class="container">
+  <ul *ngIf="inpatients">
+    <li *ngFor="let inpatient of inpatients">
+
+    
+  <a  [routerLink]="['../discharge',inpatient.caseId]"> <div class="notice">
+      
+          <div class="col-md-2"><span><b>IP No: </b></span>{{ inpatient.ipNum}}</div>
+          <div class="col-md-2"> <span><b>Name: </b></span>{{ inpatient.patientName}}</div>
+          <div class="col-md-3"><span><b>Admission Date: </b></span>{{ inpatient.admissionDate}}</div>
+          <div class="col-md-3"><span></span><b>Target Weight: </b><span>{{ inpatient.targetWeight}}</span></div>
+          <div class="col-md-2"><span></span><b>SAM Number: </b><span>{{ inpatient.samNumber}}</span></div>
+         
+          
+    
+      
+                  
+       
+  </div></a>
+</li>
+</ul>
+
+
+  </div>
+
+ 
+    
+    
+         
+  
+
+

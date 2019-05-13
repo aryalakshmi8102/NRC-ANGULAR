@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="assets/images/logo.gif" style="width:50px;height:30px;"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a routerLink="home">Home</a></li>
+        <!-- <li class=""><a routerLink="about">About Us</a></li>
+        <li class=""><a routerLink="contact">Contact Us</a></li> -->
+        <li class=""><a routerLink="about">NRC</a></li>
+        <!-- <li class=""><a routerLink="in-patient">In patient</a></li>
+        <li class=""><a routerLink="search">search</a></li> -->
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="color:white;padding-top:10px;">
+            <li class=""><a routerLink="login"></a></li>
+             <a href  routerLink="logout" *ngIf="currentUser | async">
+                <span class="glyphicon glyphicon-user"></span>  <b>Logout
+             </b></a>
+            <a href  *ngIf="!(currentUser | async)" routerLink="login">
+                <span class="glyphicon glyphicon-user"></span>
+              <b>Login</b></a> 
+          </ul>
+    </div>
+  </div>
+</nav>

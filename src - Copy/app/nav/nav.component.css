@@ -1,0 +1,9 @@
+a {
+    color: #e7eef5;
+    text-decoration: none;
+}
+.navbar-right {
+    float: right!important;
+    padding-top: 13px;
+    margin-right: -15px;
+}

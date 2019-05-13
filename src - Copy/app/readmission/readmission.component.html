@@ -1,0 +1,697 @@
+
+
+
+<div class="container">
+
+    <h3 style="color:#FFF;text-align: center">New Admission</h3>
+
+
+  
+
+
+    <!-- collapse start here -->
+
+    <div class="panel-group" id="accordion" style="margin-top:50px;">
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+                <h4 class="panel-title accordion-toggle">
+                    Registration Details
+                </h4>
+
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse collapse in">
+                <div class="panel-body">
+                   
+                    
+                    <form #detailsForm='ngForm'   data-toggle="validator" role="form">
+
+
+
+          
+                         <div class="form-group row">
+
+                                    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="uhid">UH ID*</label>
+                                      
+                                        <input class="form-control" name="uhid" value="{{searchedchilds.uhId}}"
+                                        [(ngModel)]="searchedchilds.uhId" />
+                                          
+                                    
+                                    </div>
+                                    <!-- data-minlength="5" onKeyPress="if(this.value.length==12) return false;"  -->
+                                    
+                                    <!--  max="9999" min="1" 
+                                        onKeyDown="if(this.value.length==12 && event.keyCode>47 && event.keyCode < 58)return false;" -->
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="ip">IP No.*</label>
+                                        <div class="form-group">
+                                        <input class="form-control" name="ip"  type="number"  data-minlength="5" onKeyPress="if(this.value.length==12) return false;"   data-error="please enter valid IP number" required ngModel >
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <!-- data-minlength="3" maxlength="12" -->
+
+
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">Unit*</label>
+                                            <div class="form-group">
+                                            <select *ngIf="units" name="units" class="form-control"   data-error="please select value" ngModel  required>
+                                                <option *ngFor="let unit of units" [ngValue] = "unit">{{unit.configCode}}</option>
+                                               
+                            
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Ward*</label>
+                                                <select *ngIf="wards" name="wards" class="form-control" data-error="please select value"  ngModel  required>
+                                                        <option *ngFor="let ward of wards" [ngValue] = "ward">{{ward.configCode}}</option>
+                                                       
+                                                       
+                                                    </select>
+                                                    <div class="help-block with-errors"></div>
+
+                                                
+                                                
+                                            </div>
+                                   
+    
+    
+                                </div>
+
+
+
+                               
+                                <div class="form-group row">
+
+
+                                        
+
+                                    
+                                      
+                                            
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Referred  From*</label>
+                                                <select *ngIf="referreds" name="referred" class="form-control" ngModel  required>
+                                                        <option *ngFor="let referred of referreds" [ngValue] = "referred">{{referred.configCode}}</option>
+                                                       
+                                                       
+                                                    </select>
+                                            </div>
+
+
+
+
+                                            
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="ex2">Referred By*</label>
+                                                    <input class="form-control" name="referredby" type="text"   ngModel  required>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3">
+                                                        <label for="ex2">Type of Admission*</label>
+                                                     
+                                                        <select  *ngIf="admissiontypes" name="admissiontype" class="form-control"   [(ngModel)]="searchedchilds.admissionTypeId"  required>
+                                                                <option *ngFor="let admissiontype of admissiontypes" [ngValue] = "admissiontype.configId" [selected]="admissiontype.configId === searchedchilds.admissionTypeId">{{admissiontype.configCode}}</option>
+                                                                
+                                                                
+                                                            </select>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <label for="ex2">SAM No*.</label>
+                                                        <input class="form-control" name="samno" type="text"   value="{{searchedchilds.samNumber}}"  [(ngModel)]="searchedchilds.samNumber" required>
+                                                    </div>
+                                                
+
+
+                                                   
+
+                                </div>
+                            </form> 
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+                <h4 class="panel-title accordion-toggle">
+                    Child Demography
+                </h4>
+
+
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse  collapse in">
+                <div class="panel-body">
+                       
+
+                        <form  #childForm='ngForm'  data-toggle="validator">
+                            <div class="form-group row">
+                                <div class="col-md-3 col-xs-3">
+                                    <label for="rch">RCH ID</label>
+                                    <div class="formgroup">
+                                    <input class="form-control" name="rch" type="number"   value="{{searchedchilds. rchId}}"   [(ngModel)]="searchedchilds. rchId" >
+                                    <!-- <div class="help-block with-errors"></div> -->
+                                </div>
+                                </div>
+                               
+                                
+
+
+                                <div class="col-md-2 col-xs-2">
+                                    <label for="name">Name*</label>
+                                    <div class="form-group">
+                                    <input class="form-control" name="childname" type="text"  value="{{searchedchilds.childName}}"   [(ngModel)]="searchedchilds.childName"   required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                </div>
+                                <div class="col-md-3 col-xs-3">
+                                    <label for="dob">Date of Birth</label>
+                                    <div class="form-group">
+                                    <input class="form-control" name="childdob"  value="{{searchedchilds.childDob}}"   [(ngModel)]="searchedchilds.childDob"  
+                                    [max]="time"  
+                                     ngModel  (input)="ageCalculution($event.target.value)">
+                                    <!-- <div class="help-block with-errors"></div> -->
+                                    
+                                </div>
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <label for="age">Age*(years)</label>
+                                    <div class="form-group">
+                                    <input class="form-control" name="childage" type="number"   value="{{searchedchilds.childAgeinYears}}"   [(ngModel)]="searchedchilds.childAgeinYears" required>
+                                   
+                                </div>
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <label for="age">Age*(months)</label>
+                                    <div class="form-group">
+                                    <input class="form-control" name="childagemonth" type="number"     value="{{searchedchilds.childAgeinMonths}}"  [(ngModel)]="searchedchilds.childAgeinMonths" required>
+                                   
+                                </div>
+                                </div>
+                                
+
+                            </div>
+                                 <div class="form-group row">
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="sex">Sex*</label>
+                                                <select name="childsex" class="form-control" ngModel  required>
+                                                  
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                    <option>Others</option>
+                                                    
+            
+                                                </select>
+                                            </div>
+                                   
+                                    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="category">Category* </label>
+                                        <select name="category" class="form-control"  ngModel>
+                                           
+                                            <option>BPL</option>
+                                            <option>APL</option>
+    
+    
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="religion">Religion*</label>
+                                        <select   *ngIf="religions"  name="religion" class="form-control "   [(ngModel)]="searchedchilds.religionId">
+                                            <option *ngFor="let religion of religions" [ngValue] = "religion.configId">{{religion.configCode}}</option>
+                                            
+                                        
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="caste">Caste*</label>
+                                        <select    *ngIf="castes" name="caste" class="form-control" [(ngModel)]="searchedchilds.casteId">
+                                            <option  *ngFor="let caste of castes" [ngValue] = "caste.configId">{{caste.configCode}}</option>
+                                        
+    
+                                        </select>
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
+    
+    
+                                   
+                                   
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="contact">Contact No.*</label>
+                                        <input class="form-control" name="contactno" type="tel"  value="{{searchedchilds.mobileNumber}}" maxlength="10" data-minlength="10"  data-error="please enter valid contactno"  [(ngModel)]="searchedchilds.mobileNumber"  required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-4">
+                                        <label for="address">Address*</label>
+                                        <textarea class="form-control" rows="3" name="childaddress"  value="{{searchedchilds.address}}"  
+                                        [(ngModel)]="searchedchilds.address"   required></textarea>
+                                       
+                                    </div>
+    
+    
+                                </div>
+    
+                            </form>
+                
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
+                <h4 class="panel-title accordion-toggle">
+                    Admission Criteria
+                </h4>
+
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse collapse in">
+                <div class="panel-body">
+
+                        <!-- {{caseForm.value | json}} -->
+                  
+
+                    <form  #caseForm='ngForm'  data-toggle="validator">
+
+                            <div class="form-group row">
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="date">Admission Date*</label><br>
+                                        <input class="form-control" name="admissiondate" type="date" ngModel  required >
+    
+                                    </div>
+                                    <div class="col-md-2 col-xs-2">
+                                            <label for="weight"> Weight*(kg)</label>
+                                            <input class="form-control" name="admissionweight" type="number"  [(ngModel)]="admissionweight"  (ngModelChange)="updateWeight()"  required > 
+                                            <!--     (ngModelChange)="admissionsdCalculation(admissionweight,admissionheight)" -->
+                                        </div>
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="date"> Height*(cm)</label><br>
+                                            <div class="formgroup">
+                                            <input class="form-control" name="admissionheight" type="number"  data-error="please enter valid height" [(ngModel)] =  "admissionheight"
+                                            (ngModelChange)="admissionsdCalculation(admissionweight,admissionheight)" required >
+                                            <!-- <div class="help-block with-errors"></div> -->
+                                        </div>
+        
+                                        </div>
+
+
+
+                                    
+                                    <div class="col-md-2 col-xs-2">
+                                            <label for="weight">Admission SD*</label>
+                                            <input class="form-control" name="admissionsd" type="number" value="{{(admissionweight-admissionheight) / (admissionweight-admissionheight)}}"  required   [(ngModel)]="admissionsdvalue">
+                                            <!--  [(ngModel)]="" (ngModelChange)="" -->
+                                        </div>
+                                    <div class="col-md-2 col-xs-2">
+                                        <label for="target">Target Weight*(kg) </label>
+                                        <input class="form-control" name="targetweight"  type="number"  [(ngModel)]= "targetweight" >
+                                    </div>
+                                    
+
+    
+    
+                                </div>
+                        <div class="form-group">
+                            <label for="comment">Admission Criteria*:</label><br>
+                            <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                    <label *ngFor="let criteria of criterias" class="col-md-3 col-xs-3">
+                                        <input  type="checkbox" value="{{criteria.configId}}"  
+                                        name="criterias"  
+                                        (change)="changeCheckBox($event,criteria)"  required>
+                                        {{criteria.configCode}}
+                                    </label>
+
+    
+                                        <input *ngIf="otherValueShow" type="text" name="" placeholder="" name="otherValue" [(ngModel)]="otherValue"
+                                        (input)="otherValueChange($event.target.value)"  >
+    
+                                    
+                                            </div>
+
+
+                                            
+
+                    </div><br><br><br>
+                                
+
+                                <div class="form-group">
+                                    <label for="comment"> Comorbid Condition:</label><br>
+                                    <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                            <label *ngFor="let comorbid of comorbids" class="col-md-3 col-xs-3">
+                                                <input  type="checkbox" name="
+                                                " value="" ngModel   required>
+                                                {{comorbid.configCode}}
+                                            </label>
+                                                    </div>
+
+                            </div> <br><br><br>
+
+
+                               
+                                    
+    
+                            </form> 
+
+                    
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive">
+                <h4 class="panel-title accordion-toggle">
+                    Mother Details & Demography 
+               </h4>
+
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse collapse in">
+                <div class="panel-body">
+
+
+
+
+                        <form #userForm='ngForm'   data-toggle="validator"   (ngSubmit)="onSubmitAdmission(userForm.value,childForm.value,caseForm.value,detailsForm.value)" >
+                            <!-- for validation pls add ngNativeValidate in form tag -->
+                           
+ 
+                                <div class="form-group row">
+                                    <div class="col-md-3 col col-xs-3">
+                                        <label for="name">Name*</label>
+                                        <div class="form-group">
+                                        <input  type='text' class='form-control'   value="{{searchedchilds.motherName}}"  [(ngModel)]="searchedchilds.motherName"   name='mothername' data-error="please enter mothername" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="dob">Date of Birth</label>
+                                        <input type='date' class='form-control'    ngModel  name='motherdob'  >
+                                    </div>
+    
+                                    <div class="col-md-3  col-xs-3">
+                                        <label for="age">Age*</label>
+                                        <div class="form-group">
+                                        <input   type="number" class="form-control"  value="{{searchedchilds.motherAge}}" [(ngModel)]="searchedchilds.motherAge"  name="motherage" data-error="please enter motherage"  required>
+                                        <div class="help-block with-errors"></div>
+                                    </div> 
+                                    </div>
+
+
+
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="qualifications">Education*</label>
+                                        <select    name="qualifications" *ngIf="qualifications"  class="form-control"  ngModel >
+                                            <option  *ngFor="let qualification of qualifications" [ngValue] = "qualification">{{qualification.configCode}}</option>
+                                           
+    
+                                        </select>
+                                    </div>
+
+                                    
+                                    
+    
+                                </div>
+                                <hr>
+
+
+
+                                 <div class="form-group row">
+    
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="weight">Weight (kg)</label>
+                                                <input class="form-control" name="motherweight" type="number" [(ngModel)]="motherweight">
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="height">Height (cm)</label>
+                                                <input class="form-control" name="motherheight" type="number"  [(ngModel)]= "motherheight" >
+                                            </div>
+            
+            
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="bmi">BMI</label>
+                                                <input class="form-control" name="motherbmi"   value= "{{ ((motherweight*10000)/(motherheight*motherheight)) | number : '.2-2' }}" type="number">
+                                            </div>  
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="muac">MUAC(cm)</label><br>
+                                                    <input class="form-control" name="muacmother" type="number"  ngModel  >
+                
+                                                </div>   
+                                       
+                                       
+                                       
+                                        
+        
+                                    </div>
+                                    <div class="form-group row">
+
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="hbmother">Hb (g/dl)</label>
+                                                    <input class="form-control" name="hbmother" type="number" ngModel>
+                                                </div>
+                                        <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">Fasting Blood Glucose </label>
+                                            <input class="form-control" name="bloodglucose" type="number" ngModel required>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                                
+                                            <label for="ex2">Blood Pressure (systolic)  </label>
+                                            <input class="form-control" name="bloodpressurecp" type="number"   ngModel required>
+                                                
+                                            
+                                        </div>
+    
+                                        <div class="col-md-3 col-xs-3">
+                                                
+                                            <label for="ex2">Blood Pressure (diastolic) </label>
+                                            <input class="form-control" name="bloodpressuredp" type="number"  ngModel required>
+                                                
+                                            
+                                        </div>
+    
+                                       
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                            
+                                                <div class="col-md-3 col-xs-3">
+                                                        <label for="neck">Neck Circumference (cm)</label>
+                                                        <input class="form-control" name="neckmother" type="number" ngModel>
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">Gravida</label>
+                                                            <input class="form-control" name="gravida" type="number"   ngModel>
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                                <label for="para">Para</label>
+                                                                <input class="form-control" name="para" type="number"  ngModel>
+                                                            </div>
+                                                            <div class="col-md-3 col-xs-3">
+                                                                    <label for="ex2">No. of Children</label>
+                                                                    <input class="form-control" name="noofchildren" type="number"  ngModel>
+                                                                </div>
+                                                                <div class="col-md-2 col-xs-2">
+                                                                    <label for="ex2">Family Planning</label>
+                                                                    <select name="familyplanning" class="form-control"  ngModel>
+                                                                       
+                                                                        <option [ngValue]="true">Yes</option>
+                                                                        <option [ngValue]="false">No</option>
+                                
+                                
+                                                                    </select>
+                                                                </div>
+                    
+
+                                    </div>
+                                    <div class="form-group row">
+    
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="pregnant">Pregnant at Present</label><br>
+                                                <select name="pregnant" class="form-control"  ngModel required>
+                                                  
+                                                    <option [ngValue]="true">Yes</option>
+                                                    <option [ngValue]="false">No</option>
+                
+                                                    </select>
+            
+                                            </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="neck">How Many Months</label>
+                                                    <input class="form-control" name="pregnantmonth" type="number"  ngModel>
+                                                </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                    <label for="neck">Last Menstruation Date</label>
+                                                    <input class="form-control" name="menstruation" type="date"  ngModel>
+                                                </div>
+                                            <div class="col-md-3 col-xs-3">
+                                                <label for="reganc">Registered for ANC</label><br>
+                                                <select name="reganc" class="form-control" ngModel required>
+                                                   
+                                                    <option [ngValue]="true">Yes</option>
+                                                    <option [ngValue]="false">No</option>
+                
+                                                    </select>
+            
+                                            </div>
+                                            
+                                            
+            
+            
+                                        </div>
+                                        <hr>
+        
+
+
+
+
+
+
+
+
+                                <div class="form-group row">
+
+
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="target">Breastfeeding at Present</label>
+                                                <select name="breastfeeding" class="form-control"  ngModel>
+                                                  
+                                                    <option [ngValue]="true">Yes</option>
+                                                    <option [ngValue]="false">No</option>
+                
+                                                    </select>
+            
+                                            </div>
+                                        
+
+
+                                          
+    
+    
+    
+                                    <div class="col-md-3 col-xs-3">
+                                        <label for="ex2">Medical Problems</label>
+                                        <select name="medicalproblem" class="form-control" ngModel>
+                                          
+                                            <option [ngValue]="true">Yes</option>
+                                            <option [ngValue]="false">No</option>
+        
+    
+    
+    
+                                        </select>
+                                    </div>
+                                    
+
+                                        <div class="col-md-3 col-xs-6">
+                                               
+                                                <label for="ex2">Comments</label>
+                                                <input class="form-control" name="medcomment" type="text"  ngModel>
+                                            </div>
+    
+                                    
+                                    <div class="col-md-3 col-xs-3">
+                                            <label for="target">Drugs Prescribed</label>
+                                            <select name="Drugs" class="form-control" ngModel>
+                                                <option [ngValue]="true">Yes</option>
+                                                <option [ngValue]="false">No</option>
+            
+                                                </select>
+        
+                                        </div>
+                                   
+                                    
+                                   
+                                </div>
+                                <hr>
+
+                                
+
+
+                                
+
+                                
+
+                                <div class="form-group row">
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="ex2">Present Dietary Choice  </label>
+                                                <select name="Dietary" class="form-control"  ngModel>
+                                                       
+                                                        <option value="Veg">Veg</option>
+                                                                        <option value="Non-Veg">Non Veg</option>
+                                
+                                                        </select>
+        
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                            <label for="ex2">No. of Meals per Day </label>
+                                            <input class="form-control" name="meals" type="number" ngModel required>
+                                        </div>
+                                        <div class="col-md-3 col-xs-3">
+                                                <label for="target">Risk Category</label>
+                                                <select    name="riskcategory" *ngIf="riskcategorys"  class="form-control"  ngModel >
+                                                    <option  *ngFor="let riskcategory of riskcategorys" [ngValue] = "riskcategory">{{riskcategory.configCode}}</option>
+                                               
+                
+                                                    </select>
+            
+                                            </div>
+
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="comment"> Social Factors:</label><br>
+                                    <div   *ngIf="criterias" class="col-md-12 col-xs-12">
+                                            <label *ngFor="let socialfactor of socialfactors" class="col-md-3 col-xs-3">
+                                                <input  type="checkbox" name="social" value=""  ngModel>
+                                                {{socialfactor.configCode}}
+                                            </label>
+                                            <input type="text" name="" placeholder="" >
+                                                    </div>
+
+                            </div>
+ 
+
+
+
+
+
+                                <!-- <button type='submit'>Submit</button> -->
+                                <div class="form-group">
+                                        <input type="submit" class="btnContactSubmit" style="background-color: #651C3F;" value="Submit" />
+                                        <a routerLink="/about" class="btnForgetPwd">Cancel</a>
+                                       
+                                    </div>
+
+                                
+    
+                            </form> 
+
+            
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <!-- <div class="form-group">
+    
+        <span  name="submit" class="btn btn-info btn-md">submit</span>
+
+    </div> -->
+
+    
+
+</div>
