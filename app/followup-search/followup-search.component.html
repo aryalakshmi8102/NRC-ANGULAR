@@ -1,0 +1,124 @@
+
+<ul class="navstyle breadcrumb">
+	<li class="navstyle1"><a href="#about">NRC</a></li>
+	<li class="navstyle1"><a href="#followup-search">Follow-up Search</a></li>
+   
+   
+  </ul>
+
+
+
+  <div class="container">
+	<div class="row">
+		<h3 style="color:#FFF;text-align: center"><img src="assets/images/search.jpg"  class="imagecard"  style="width: 4%;height:30%">Search For Follow-up</h3>
+	</div>
+	<section class="search-sec">
+		<div class="container">
+			<form  #searchForm='ngForm' (ngSubmit)="onSubmitSearch(searchForm.value)" novalidate="novalidate">
+				  <!-- {{searchForm.value | json}} -->
+				<div class="row">
+					
+							  <div class=" col-md-2">
+									  <label for="ex2"> RCH ID</label>
+									<input type="number" class="form-control search-slt"
+										placeholder="" name="searchrch" ngModel>
+	  
+								</div>
+								<div class=" col-md-1">
+									<label for="ex2"> SAM NO</label>
+								  <input type="number" class="form-control search-slt"
+									  placeholder="" name="searchsam" ngModel>
+	
+							  </div>
+							<div class=" col-md-2">
+								  <label for="ex2"> UHID</label>
+								<input type="number" class="form-control search-slt"
+									placeholder="" name="searchopd" ngModel>
+  
+							</div>
+							<div class=" col-md-2 ">
+								  <label for="ex2"> Child's Name</label>
+								  <input type="text" class="form-control search-slt" placeholder=""
+									  name="searchchildname" ngModel>
+							  </div>
+							<div class=" col-md-2">
+								  <label for="ex2"> Mother's Name</label>
+								<input type="text" class="form-control search-slt" placeholder=""
+									name="searchmothername" ngModel>
+  
+							</div>
+						   
+							<div class=" col-md-2 ">
+								  <label for="ex2"> Contact No</label>
+								<input type="number" class="form-control search-slt" placeholder=""
+									name="searchcontact" ngModel>
+							</div>
+							
+  
+  
+							
+					   
+				</div>
+				<div class="row" style="text-align: center">
+				
+								  
+						<button type="submit" class="btn btn-primary wrn-btn">Search</button>
+
+					
+				</div>
+			</form>
+		</div>
+	</section><br>
+  
+	
+  </div>
+  
+
+
+<div class="container">
+	<ul *ngIf="childList">
+	  <li *ngFor="let child of childList">
+  
+	  
+	
+
+	<div class="notice">
+		<div class="row">
+			<div class="col-md-2"><b>UH ID: </b></div>
+			<div class="col-md-2"><b>Name: </b></div>
+			<div class="col-md-1"><b>SAM NO: </b></div>
+			
+			<div class="col-md-2"><b>Contact No: </b></div>
+			<div class="col-md-1"><b>AD-DT: </b></div>
+			<div class="col-md-2"><b>D-DT </b></div>
+			<div class="col-md-2"><b><a [routerLink]="['../followup',child.caseId]" style="color:blue">New Followup</a> </b></div>
+
+		</div>
+
+		<div class="row">
+		  <div class="col-md-2">{{child.uhId}}</div>
+	 
+		  <div class="col-md-2">{{child.childName}}</div>
+		  <div class="col-md-1">{{child.samNumber}}</div>
+		 
+		  <div class="col-md-2">{{child.mobileNumber}}</div>
+		  <div class="col-md-1">{{child.lastAdmittedDate}}</div>
+		  <div class="col-md-2">{{child.lastDischargeDate}} </div>
+		  <div class="col-md-2">
+		<b>	<a [routerLink]="['../followup-history',child.caseId]"  style="color:blue">Followup-History</a></b>
+		  </div>
+
+		</div>
+
+</div>
+
+  </li>
+  </ul>
+  
+  
+	</div>
+
+<br><br>
+<footer>
+  <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>

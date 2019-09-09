@@ -1,0 +1,174 @@
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about">NRC</a></li>
+  <li class="navstyle1"><a href="#search">Admission</a></li>
+ 
+ 
+</ul>
+
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center"><img src="assets/images/search.jpg"  class="imagecard"  style="width: 4%;height:30%">Search For Child Record</h3>
+  </div>
+  <section class="search-sec">
+      <div class="container">
+          <form  #searchForm='ngForm' (ngSubmit)="onSubmitSearch(searchForm.value)" novalidate="novalidate">
+                <!-- {{searchForm.value | json}} -->
+              <div class="row">
+                  
+                            <div class=" col-md-2">
+                                    <label for="ex2"> RCH ID</label>
+                                  <input type="number" class="form-control search-slt"
+                                      placeholder="" name="searchrch" ngModel>
+    
+                              </div>
+                          <div class=" col-md-2">
+                                <label for="ex2"> UHID</label>
+                              <input type="number" class="form-control search-slt"
+                                  placeholder="" name="searchopd" ngModel>
+
+                          </div>
+                          <div class=" col-md-2 ">
+                                <label for="ex2"> Child's Name</label>
+                                <input type="text" class="form-control search-slt" placeholder=""
+                                    name="searchchildname" ngModel>
+                            </div>
+                          <div class=" col-md-2">
+                                <label for="ex2"> Mother's Name</label>
+                              <input type="text" class="form-control search-slt" placeholder=""
+                                  name="searchmothername" ngModel>
+
+                          </div>
+                         
+                          <div class=" col-md-2 ">
+                                <label for="ex2"> Contact No</label>
+                              <input type="number" class="form-control search-slt" placeholder=""
+                                  name="searchcontact" ngModel>
+                          </div>
+                          
+
+
+                          <div class=" col-md-2">
+                                
+                              <button type="submit" class="btn btn-primary wrn-btn">Search</button>
+
+                          </div>
+                     
+              </div>
+          </form>
+      </div>
+  </section><br>
+
+  <div class="row">
+      <h4 style="color:#FFF;text-align: right"><a routerLink="/admission" style="text-decoration:none;color: white">Create New Admission</a></h4>
+  </div>
+</div>
+
+
+<div class="container">
+        <ul *ngIf="childList">
+          <li *ngFor="let child of childList">
+      
+          
+        <!-- <div class="notice">
+            
+                <div class="col-md-2"><span><b>UH ID: </b></span>{{child.uhId}}</div>
+               
+                <div class="col-md-2"><span><b>Name: </b></span>{{child.childName}}</div>
+                <div class="col-md-2"><span></span><b>DOB: </b><span>{{child.childDob}}</span></div>
+                <div class="col-md-2"><span></span><b>Mother's Name: </b><span>{{child.motherName}}</span></div>
+                <div class="col-md-2"><span></span><b>Contact No: </b><span>{{child.mobileNumber}}</span></div>
+                <div class="col-md-2"><span></span><b>AD-DT: </b><span>{{child.lastAdmittedDate}}</span></div>
+                <div class="col-md-1"><span></span><b> </b><span>
+                  <a [routerLink]="['../readmission',child.caseId]">New</a>
+                </span></div>
+
+        </div> -->
+
+        <div class="notice">
+            <div class="row">
+                <div class="col-md-2"><b>UH ID: </b></div>
+                <div class="col-md-2"><b>Name: </b></div>
+                <div class="col-md-1"><b>SAM NO: </b></div>
+                <div class="col-md-2"><b>Mother's Name: </b></div>
+                <div class="col-md-2"><b>Contact No: </b></div>
+                <div class="col-md-1"><b>AD-DT: </b></div>
+                <div class="col-md-2"><b> </b></div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">{{child.uhId}}</div>
+         
+              <div class="col-md-2">{{child.childName}}</div>
+              <div class="col-md-1">{{child.samNumber}}</div>
+              <div class="col-md-2">{{child.motherName}}</div>
+              <div class="col-md-2">{{child.mobileNumber}}</div>
+              <div class="col-md-1">{{child.lastAdmittedDate}}</div>
+              <div class="col-md-2">
+                <a [routerLink]="['../readmission',child.caseId]" style="color:blue">Readmission/Relapse</a>
+              </div>
+
+            </div>
+
+  </div>
+
+      </li>
+      </ul>
+      
+      
+        </div>
+
+
+<!-- <section class="pt-2">
+
+
+  <div class="col-md-12" >
+
+
+      
+
+
+      <div class="card" style="background-color:#ffff;border: 1px;width:50%;" *ngFor="let child of childList">
+          <div class="card-body"
+              style="padding-left:50px; padding-top:20px;padding-bottom:10px;text-align: justify">
+
+
+
+
+
+              <ul class="list-unstyled" style="border-radius: 5px;" >
+                  <li class=""> UH ID :{{child.uhId}}</li>
+                  <li class="">RCH ID:{{child.rchId}}</li>
+                  <li class="">Name:{{child.childName}}</li>
+                  <li class="">Date of birth:{{child.childDob}}</li>
+                  <li class="">MotherName:{{child.motherName}}</li>
+                  
+                  
+                  <li class="">Mobile Number:{{child.mobileNumber}}</li>
+                 
+                  <li class="list-inline-item">Last Admitted Date:{{child.lastAdmittedDate}}</li>
+                  <li class="list-inline-item"><button>Readmission</button></li>
+                 
+              </ul>
+
+
+
+          </div>
+      </div>
+  </div>
+ 
+ 
+
+
+
+
+
+
+</section> -->
+
+
+
+
+<footer>
+  <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>

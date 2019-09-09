@@ -1,0 +1,187 @@
+.header {
+    background: #fff;
+    padding: 0px 0;
+    padding-top: 0px;
+    margin-top:-20px;
+  }
+  
+  .control-box h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+  
+  .control-box {
+    border: 7px solid #e4ddc4;
+    
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .control-box .links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .control-box .links li {
+    margin-bottom: 10px;
+  }
+  
+  .control-box .links li a {
+    color: #aa1212;
+    text-decoration: underline;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .breadcrumb p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .breadcrumb p a {
+    color: #aa1212;
+  }
+  
+  .main-content h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  
+  .main-content p {
+    font-size: 17px;
+    color: #777;
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+  
+  .main-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+  
+  .main-content h1 {
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #fff;
+    background-color: #fff;
+  
+  }
+  
+  .footer ul {
+    margin-bottom: 0;
+  }
+  .footer ul li a {
+    color: #aa1212;
+    font-size: 14px;
+  }
+
+
+  .firma-card{
+background: #fff;
+border: 7px solid;
+border-color: #e4ddc4;
+margin: 1rem auto;
+border-radius: 10px;
+box-shadow: 0 4px 6px -1px rgb(198, 207, 234);
+margin-bottom: 1.6%;
+overflow: hidden;
+}
+.firma-resim1{
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-size: cover;
+background-position: center;
+transition: -webkit-transform .2s;
+transition: transform .2s;
+height:135px;
+background-image: url(http://www.bmcri.org/images/index_21.gif);
+}
+
+.firma-resim2{
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-size: cover;
+background-position: center;
+transition: -webkit-transform .2s;
+transition: transform .2s;
+height:135px;
+background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2HAiTEJgvNEb6wYKy7X2soKU6h2lkhV2Jeu6hc_hMx5wpDKiIEA);
+}
+.firma-resim{
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-size: cover;
+background-position: center;
+transition: -webkit-transform .2s;
+transition: transform .2s;
+height:135px;
+background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg);
+}
+.firmalar{
+background: #f1f4f5c7;
+}
+
+@media (max-width: 768px) {
+
+.firma-logo{
+      width: calc(33.66667% - .75rem);
+      height: 6.5rem;
+      margin: 5px .375rem;
+}
+.firma-resim {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+}
+.img-padding-no{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+}
+
+.botBord {
+  border-bottom: 1px dotted #484848;
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+footer{
+  background-color: #424558;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 35px;
+   text-align: center;
+   color: #CCC;
+}
+
+footer p {
+   padding: 10.5px;
+   margin: 0px;
+   line-height: 100%;
+}

@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3c688e;
+    height: 100vh;
+  }
+  /* #login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  } */
+
+  #login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 300px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
+
+
+
+.btn-submit{
+  text-align:center;
+   padding:10px;
+   min-width:330px;
+   background-color:#651c3f; 
+   color:white;
+ }
+
+ .imagecard {
+  z-index: 2;
+  display: block;
+  positioN: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 0 auto;
+  color: white;
+}

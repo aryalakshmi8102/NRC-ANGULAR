@@ -1,0 +1,349 @@
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about"  style="color: white">NRC</a></li>
+  <li class="navstyle1"><a href="#followup-search" style="color: white">Followup-Search</a></li>
+  <li class="navstyle1"><a href="#followup" style="color: white">Follow-up</a></li>
+ 
+ 
+</ul>
+
+
+<!-- <div class="container">
+
+<h3 style="color:#FFF;text-align: center"><img src="assets/images/followup1.png"  class="imagecard"  style="width: 4%;height:30%">Follow-up</h3>
+
+
+
+
+
+
+
+<div class="panel-group" id="accordion" style="margin-top:50px;">
+    <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+            <h4 class="panel-title accordion-toggle">
+               Child Details
+            </h4>
+
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse collapse in">
+            <div class="panel-body">
+
+                
+        <div class="container">
+          <div class="header1">
+            <div class="col-md-4">
+                <ul>
+                  <li> <b>SAM No: </b>1112</li> 
+                    <li> <b>Name: </b></li>
+                   
+                  
+
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                     <li> <b>Admission Date: </b></li>
+                    <li> <b>Discharge Date: </b></li>
+
+
+
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                     <li> <b>Discharge Weight: </b></li>
+                    <li> <b>Last Follow-up Date: </b></li> 
+                </ul>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+            <h4 class="panel-title accordion-toggle">
+              Follow-up Details
+            </h4>
+
+
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse collapse in ">
+            <div class="panel-body">
+
+                 
+                          <form #FollowupForm='ngForm'  data-toggle="validator"  (ngSubmit)="onSubmitFollowup(FollowupForm)" >
+                                
+                                 
+
+                        <div class="form-group row">
+
+                            <div class="col-md-3 col-xs-3">
+                                <label for="ex2">Follow-up Date</label>
+                                <input class="form-control" name="followdate" value="" ngModel >
+                            </div> 
+                            <div class="col-md-3 col-xs-3">
+                                <label for="ex2"> Place</label>
+                                <input class="form-control" name="followplace" value="" type="text"  ngModel>
+                            </div>
+                            <div class="col-md-3 col-xs-3">
+                                <label for="ex2">Follow-up Done By</label>
+                                <input class="form-control" name="aheight" type="text" value="" ngModel  >
+                            </div>
+                           
+
+
+                        </div>
+                   
+              
+
+
+              
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group row">
+
+              <div class="col-md-4 col-xs-4">
+                  <label for="ex2">Clinical Impression*</label>
+                  <select name="clinicalimpression" class="form-control" ngModel  required>
+                     
+                      <option value="Primary">Primary SAM</option>
+                      <option value="Secondary">Secondary SAM</option>
+
+
+                  </select>
+              </div>
+              
+
+
+
+              <div class="col-md-2 col-xs-2">
+                  <label for="outcomes">Outcome*</label>
+                  <select    name="outcomes" *ngIf="outcomes"  class="form-control" ngModel  required  (ngModelChange)="removeWeightGain()">
+                      <option  *ngFor="let outcome of outcomes" [ngValue] ="outcome">{{outcome.configCode}}</option>
+                     
+
+                  </select>
+              </div>
+
+
+
+
+
+
+
+
+              <div class="col-md-6 col-xs-6">
+
+                  <label for="comment">Treatment Given*</label>
+                  <textarea class="form-control" rows="3" name="treatmentcomment" ngModel  required></textarea>
+              </div>
+
+
+          </div>
+
+          <div class="form-group row">
+
+
+
+
+
+            <div class="col-md-6 col-xs-6">
+
+                <label for="comment">Medical Advice</label>
+                <textarea class="form-control" rows="3" name="medicalcomment" ngModel  ></textarea>
+            </div>
+            <div class="col-md-6 col-xs-6">
+
+                <label for="comment">Dietary Advice</label>
+                <textarea class="form-control" rows="3" name="dietarycomment" ngModel></textarea>
+            </div>
+
+        </div>
+       
+
+
+                        </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div> 
+
+
+
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  
+
+  <form class="well form-horizontal"  #FollowupForm='ngForm'  data-toggle="validator"  (ngSubmit)="onSubmitFollowup(FollowupForm.value)"  >
+    <!--  (ngSubmit)="onSubmitFollowup(FollowupForm)"  -->
+<fieldset>
+
+<!-- Form Name -->
+<legend><h2><b>Follow-up Form</b></h2></legend><br>
+
+
+<!-- Text input-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Date</label>  
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+<input  name="followupdate" placeholder="" class="form-control"  type="date" ngModel>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group"> 
+<label class="col-md-4 control-label">Place</label>
+  <div class="col-md-4 selectContainer">
+  <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+  
+  <select   *ngIf="followupplaces"  name="followupplace" class="form-control selectpicker" ngModel >
+    <option *ngFor="let followupplace of followupplaces" [ngValue] ="followupplace.configId">{{ followupplace.configCode}}</option>
+
+</select>
+</div>
+</div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+<label class="col-md-4 control-label">Follow-up Done By</label>  
+<div class="col-md-4 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  name="followupby" placeholder="By" class="form-control"  type="text" ngModel>
+  </div>
+</div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Weight</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+  <input class="form-control" name="followupweight" placeholder="Weight" class="form-control"  type="text"  
+  (ngModelChange)="FollowupSDCalculation(followupweight,followupheight)"   [(ngModel)]="followupweight" >
+    </div>
+  </div>
+  </div>
+
+<!-- Text input-->
+
+<div class="form-group">
+<label class="col-md-4 control-label" >Height</label> 
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-resize-vertical"></i></span>
+<input class="form-control" name="followupheight" placeholder="Height" class="form-control" value="0" type="number" 
+(ngModelChange)="FollowupSDCalculation(followupheight,followupweight)" [(ngModel)]="followupheight"  >
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+
+
+
+<!-- Text input-->
+     <div class="form-group">
+<label class="col-md-4 control-label">SD</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-sd-video"></i></span>
+<input name="followupsd" placeholder="SD value" class="form-control"  type="text"   [(ngModel)]="followupsdvalue" disabled>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group"> 
+  <label class="col-md-4 control-label">Status</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+   
+    <select   *ngIf="malnutrtionstatus"  name="followupstatus" class="form-control selectpicker" ngModel >
+      <option *ngFor="let malnutrtionstatu of malnutrtionstatus" [ngValue] ="malnutrtionstatu.configId">{{ malnutrtionstatu.configCode}}</option>
+  
+  </select>
+  </div>
+  </div>
+  </div>
+  
+  <!-- Text input-->
+
+
+<!-- Text input-->
+     
+<div class="form-group">
+<label class="col-md-4 control-label">Remarks</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group" style="overflow: hidden">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+      <textarea name="followupremark" placeholder="text here..." class="input-group" rows="3" cols="40"  ngModel></textarea>
+
+  </div>
+</div>
+</div>
+
+<!-- Select Basic -->
+
+
+
+<!-- Success message -->
+
+
+<!-- Button -->
+<div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-4"><br>
+ <button type="submit" class="btn btn-warning" style="background-color: #651C3F" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+</div>
+</div>
+
+</fieldset>
+</form>
+</div>
+ <!-- /.container -->
+ <br><br>
+
+ <footer>
+  <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>
