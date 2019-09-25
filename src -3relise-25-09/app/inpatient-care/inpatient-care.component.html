@@ -1,0 +1,101 @@
+
+<ul class="navstyle breadcrumb" style="color:white">
+  <li class="navstyle1"><a href="#about" style="color:white">NRC</a></li>
+  <li class="navstyle1"><a href="#inpatient-care" style="color:white">Inpatients</a></li>
+  
+ 
+</ul>
+
+
+
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center"><img src="assets/images/inpatient1.png"  class="imagecard"  style="width: 4%;height:30%">Inpatients list</h3>
+  </div>
+  <br>
+
+
+</div>
+<div class="container">
+   <ul *ngIf="inpatients">
+    <li *ngFor="let inpatient of inpatients"  [class.text-success]="inpatient.targetWeight === 6.33"
+     [class.text-primary]="inpatient.targetWeight === 4.6"
+      [class.text-danger]="inpatient.targetWeight === 8">
+
+    
+  <a  > 
+    <div class="notice"  [class.selected]="inpatient.dischargeStatus == true"  
+    [class.unselected]="inpatient.dischargeStatus == false"
+     
+      >
+      
+<!--         
+          <div class="col-md-2"> <span><b>Name: </b></span>{{ inpatient.patientName}}</div>
+          <div class="col-md-3"><span><b>Admission Date: </b></span>{{ inpatient.admissionDate}}</div>
+          <div class="col-md-3"><span></span><b>Target Weight: </b><span>{{ inpatient.targetWeight}}</span></div>
+          <div class="col-md-2"><span></span><b>Last measured Date: </b><span>{{ inpatient.lastMeasuredDate}}</span></div>
+          <div class="col-md-2"><span></span><b>Last measured Weight: </b><span>{{ inpatient.lastMeasuredWeight}}</span></div>
+          -->
+          
+            <div class="row">
+                <div class="col-md-2"><b>Name: </b></div>
+                <div class="col-md-1"><b>SAM No. </b></div>
+                <div class="col-md-1"><b>AD Date: </b></div>
+                <div class="col-md-2"><b>Target Weight: </b></div>
+                <div class="col-md-2"><b>Last measured Date: </b></div>
+                <div class="col-md-2"><b>Last measured Weight:  </b></div>
+                <a [routerLink]="['../dailycare',inpatient.caseId] ">Weight capture</a>
+               
+                <!-- <div class="col-md-1"><b> </b></div> -->
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">{{ inpatient.patientName}}</div>
+         
+              <div class="col-md-1">{{ inpatient.samNumber}}</div>
+              <div class="col-md-1">{{ inpatient.admissionDate}}</div>
+              <div class="col-md-2">{{ inpatient.targetWeight}}</div>
+              <div class="col-md-2">{{ inpatient.lastMeasuredDate}}</div>
+              <div class="col-md-2">{{ inpatient.lastMeasuredWeight}}</div>
+              <!-- <div class="col-md-1"><a href="#about" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-remove"></span> Remove 
+              </a>
+             
+              </div> -->
+
+            </div>
+
+   
+    
+      
+                  
+       
+  </div>
+</a>
+</li>
+</ul> 
+<!-- 
+<ul *ngIf="inpatients">
+  <li *ngFor="let inpatient of inpatients"  [class.text-success]="inpatient.targetWeight === 6.33"
+      [class.text-primary]="inpatient.targetWeight === 4.6"
+      [class.text-danger]="inpatient.targetWeight === 8">
+      {{ inpatient.patientName}} {{ inpatient.targetWeight}}
+  </li>
+</ul> -->
+
+
+  </div><br><br>
+
+  <footer>
+    <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>
+
+ 
+    
+    
+         
+  
+
+
+

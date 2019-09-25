@@ -1,0 +1,184 @@
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about" style="color: white">NRC</a></li>
+  <li class="navstyle1"><a href="#followup-search" style="color: white">Followup-Search</a></li>
+  <li class="navstyle1"><a href="#followup" style="color: white"> New Follow-up</a></li>
+
+
+</ul>
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+  <form class="well form-horizontal" #FollowupForm='ngForm' data-toggle="validator"
+    (ngSubmit)="onSubmitFollowup(FollowupForm.value)">
+
+    <fieldset>
+
+
+      <legend>
+        <h2><b> New Follow-up </b></h2>
+
+        
+        
+          <div *ngFor="let childData of okay">
+            <div class="col-md-3" style="color: black;font-size: 16px"><span><b>Name: </b></span>{{childData.childName}}</div>
+            <div class="col-md-3" style="color: black;font-size: 16px"><span><b>SAM No: </b></span>{{childData.samNumber}}</div>
+          </div>
+        
+      </legend><br>
+
+     
+
+      <br>
+
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Date</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> -->
+            <input name="followupdate" placeholder="" class="form-control" type="date" ngModel>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Place</label>
+        <div class="col-md-4 selectContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span> -->
+
+            <select *ngIf="followupplaces" name="followupplace" class="form-control selectpicker" ngModel>
+              <option *ngFor="let followupplace of followupplaces" [ngValue]="followupplace.configId">
+                {{ followupplace.configCode}}</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Follow-up Done By</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+            <input name="followupby" placeholder="By" class="form-control" type="text" ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Weight</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span> -->
+            <input class="form-control" name="followupweight" placeholder="Weight" class="form-control" type="text"
+              (ngModelChange)="FollowupSDCalculation(followupweight,followupheight)" [(ngModel)]="followupweight">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Height</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-resize-vertical"></i></span> -->
+            <input class="form-control" name="followupheight" placeholder="Height" class="form-control" value="0"
+              type="number" (ngModelChange)="FollowupSDCalculation(followupheight,followupweight)"
+              [(ngModel)]="followupheight">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">SD</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-sd-video"></i></span> -->
+            <input name="followupsd" placeholder="SD value" class="form-control" type="text"
+              [(ngModel)]="followupsdvalue" disabled>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Status</label>
+        <div class="col-md-4 selectContainer">
+          <div class="input-group">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span> -->
+
+            <select *ngIf="malnutrtionstatus" name="followupstatus" class="form-control selectpicker" ngModel>
+              <option *ngFor="let malnutrtionstatu of malnutrtionstatus" [ngValue]="malnutrtionstatu.configId">
+                {{ malnutrtionstatu.configCode}}</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Remarks</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group" style="overflow: hidden">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span> -->
+            <textarea name="followupremark" placeholder="text here..." class="input-group" rows="3" cols="40"
+              ngModel></textarea>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+
+
+
+      <!-- Success message -->
+
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+          <button type="submit" class="btn btn-warning" style="background-color: #651C3F">SUBMIT <span
+              class="glyphicon glyphicon-send"></span></button>&nbsp;&nbsp;&nbsp; <a routerLink="/followup-search" class="btnForgetPwd">Cancel</a>
+        </div>
+      </div>
+
+     
+
+    </fieldset>
+  </form>
+</div>
+<!-- /.container -->
+<br><br>
+
+<footer>
+  <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of
+    Karnataka, IIITB and CSTEP</p>
+</footer>

@@ -1,0 +1,26 @@
+a {
+    color: #e7eef5;
+    text-decoration: none;
+}
+.navbar-right {
+    float: right!important;
+   
+    margin-right: -15px;
+}
+
+.navbar-inverse {
+    background-color: #008EBF;
+    border-color:#008EBF;
+
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+    color: #fff;
+    background-color: #008EBF;
+}
+
+.navbar-brand{
+    padding-top:7px;
+}
+
+

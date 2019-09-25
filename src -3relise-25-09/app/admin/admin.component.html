@@ -1,0 +1,277 @@
+<ul class="navstyle breadcrumb">
+    <li class="navstyle1"><a href="#about">NRC</a></li>
+    
+    <li class="navstyle1"><a href="#admin">Admin & Operations</a></li>
+   
+  </ul>
+
+
+<div class="container">
+    <div class="row">
+        <h1 style="color:white">Admin & Operation</h1>
+        <div role="tabpanel">
+            <div class="col-sm-3">
+                <ul class="nav nav-pills brand-pills nav-stacked" role="tablist">
+                    <li role="presentation" class="brand-nav active"><a href="#tab1" aria-controls="tab1" role="tab"
+                            data-toggle="tab">Human Resource </a></li>
+                    <li role="presentation" class="brand-nav"><a href="#tab2" aria-controls="tab2" role="tab"
+                            data-toggle="tab">NRC Wards</a></li>
+                    <!-- <li role="presentation" class="brand-nav"><a href="#tab3" aria-controls="tab3" role="tab"
+                            data-toggle="tab">Gansta ipsum</a></li>
+                    <li role="presentation" class="brand-nav"><a href="#tab4" aria-controls="tab4" role="tab"
+                            data-toggle="tab">Corporate ipsum</a></li> -->
+                </ul>
+            </div>
+            <div class="col-sm-9">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <div class="panel-group" id="accordion">
+
+                            <div class="panel panel-info">
+                                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                                    data-target="#collapseTwo">
+                                    <h4 class="panel-title accordion-toggle">
+                                        Human Resource in place
+                                    </h4>
+
+
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse collapse in ">
+                                    <div class="panel-body">
+
+
+                                        <form #hrForm='ngForm'(ngSubmit)="onSubmithrForm(hrForm.value)"
+                                            >
+                                          
+                                            
+                                            <div class="form-group row">
+
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <label for="ex2">General :</label>
+                                                       
+    
+                                                    </div>
+                                                
+                                                   
+                                                    <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">No.of Bed </label>
+                                                       
+                                                        <input class="form-control" name="bedno" value="{{resoucelist.numberOfBeds}}" type="text"
+                                                            ngModel="">
+                                                    </div>
+                                                    
+                                                   
+    
+    
+                                                </div>
+
+
+
+                                            <div class="form-group row">
+
+                                                <div class="col-md-3 col-xs-3">
+                                                    <label for="ex2">Paediatrician/Medical Officer:</label>
+
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2"> Sanctioned</label>
+                                                    <input class="form-control" name="paedisan" value="{{resoucelist.officerList.sanctioned}}" type="text"
+                                                        ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Working</label>
+                                                    <input class="form-control" name="paediworking" type="text" value=""
+                                                        ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Vacant</label>
+                                                    <input class="form-control" name="paedivacant" type="text" value="" ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Training</label>
+                                                    <input class="form-control" name="paeditraining" type="text" value="" ngModel>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <div class="col-md-3 col-xs-3">
+                                                    <label for="ex2">Staff Nurse:</label>
+
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2"> Sanctioned</label>
+                                                    <input class="form-control" name="staffsan" value="" type="text"
+                                                        ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Working</label>
+                                                    <input class="form-control" name="staffwork" type="text" value=""
+                                                        ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Vacant</label>
+                                                    <input class="form-control" name="staffvacant" type="text" value="" ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Training</label>
+                                                    <input class="form-control" name="stafftraining" type="text" value="" ngModel>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <div class="col-md-3 col-xs-3">
+                                                    <label for="ex2">Dietician:</label>
+
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2"> Sanctioned</label>
+                                                    <input class="form-control" name="dietsan" value="" type="text"
+                                                       ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Working</label>
+                                                    <input class="form-control" name="dietwork" type="text" value=""
+                                                        ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Vacant</label>
+                                                    <input class="form-control" name="dietvacant" type="text" value="" ngModel>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <label for="ex2">Training</label>
+                                                    <input class="form-control" name="diettraining" type="text" value="" ngModel>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                    <div class="col-md-3 col-xs-3">
+                                                        <label for="ex2">Cook:</label>
+    
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <label for="ex2"> Sanctioned</label>
+                                                        <input class="form-control" name="cooksan" value="" type="text"
+                                                            ngModel>
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <label for="ex2">Working</label>
+                                                        <input class="form-control" name="cookwork" type="text" value=""
+                                                            ngModel>
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <label for="ex2">Vacant</label>
+                                                        <input class="form-control" name="cookvacant" type="text" value="" ngModel>
+                                                    </div>
+                                                    <div class="col-md-2 col-xs-2">
+                                                        <label for="ex2">Training</label>
+                                                        <input class="form-control" name="cooktraining" type="text" value="" ngModel>
+                                                    </div>
+    
+    
+                                                </div>
+                                                <div class="form-group row">
+
+                                                        <div class="col-md-3 col-xs-3">
+                                                            <label for="ex2">At tender:</label>
+        
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2"> Sanctioned</label>
+                                                            <input class="form-control" name="atsan" value="" type="text"
+                                                                ngModel>
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">Working</label>
+                                                            <input class="form-control" name="atwork" type="text" value=""
+                                                                ngModel>
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">Vacant</label>
+                                                            <input class="form-control" name="atvacant" type="text" value="" ngModel>
+                                                        </div>
+                                                        <div class="col-md-2 col-xs-2">
+                                                            <label for="ex2">Training</label>
+                                                            <input class="form-control" name="attraining" type="text" value="" ngModel>
+                                                        </div>
+        
+        
+                                                    </div>
+                                                    <div class="form-group row">
+
+                                                            <div class="col-md-3 col-xs-3">
+                                                                <label for="ex2">MSW:</label>
+            
+                                                            </div>
+                                                            <div class="col-md-2 col-xs-2">
+                                                                <label for="ex2"> Sanctioned</label>
+                                                                <input class="form-control" name="mswsan" value="" type="text"
+                                                                    ngModel>
+                                                            </div>
+                                                            <div class="col-md-2 col-xs-2">
+                                                                <label for="ex2">Working</label>
+                                                                <input class="form-control" name="mswwork" type="text" value=""
+                                                                    ngModel>
+                                                            </div>
+                                                            <div class="col-md-2 col-xs-2">
+                                                                <label for="ex2">Vacant</label>
+                                                                <input class="form-control" name="mswvacant" type="text" value="" ngModel>
+                                                            </div>
+                                                            <div class="col-md-2 col-xs-2">
+                                                                <label for="ex2">Training</label>
+                                                                <input class="form-control" name="mswtraining" type="text" value="" ngModel>
+                                                            </div>
+            
+            
+                                                        </div>
+
+
+                                            <!-- <button type='submit'>Submit</button> -->
+                                            <div class="form-group">
+                                                <input type="submit" class="btnContactSubmit btnForgetPwd"
+                                                    style="background-color: #651C3F;" value="Submit" />
+                                                <a routerLink="/about" class="btnForgetPwd">Cancel</a>
+
+                                            </div>
+
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <p>
+                           
+                        </p>
+                       
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <p>
+                           test2
+                        </p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <p>
+                           test3
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+        <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+    </footer>

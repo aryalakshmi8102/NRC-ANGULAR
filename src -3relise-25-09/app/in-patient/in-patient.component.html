@@ -1,0 +1,60 @@
+
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about"  style="color: white">NRC</a></li>
+  <li class="navstyle1"><a href="#in-patient" style="color: white">Discharge child</a></li>
+ 
+ 
+</ul>
+
+
+
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center"><img src="assets/images/inpatient1.png"  class="imagecard"  style="width: 4%;height:30%">Discharge Child</h3>
+  </div>
+  <br>
+
+
+</div>
+<div class="container">
+  <ul *ngIf="inpatients">
+    <li *ngFor="let inpatient of inpatients">
+
+    
+  <a  [routerLink]="['../discharge',inpatient.caseId]">
+     <div class="notice" [class.selected]="inpatient.dischargeStatus == true"  
+     [class.unselected]="inpatient.dischargeStatus == false">
+      
+        
+          <div class="col-md-2"> <span><b>Name: </b></span>{{ inpatient.patientName}}</div>
+          <div class="col-md-2"><span></span><b>SAM Number: </b><span>{{ inpatient.samNumber}}</span></div>
+         
+          <div class="col-md-3"><span><b>Admission Date: </b></span>{{ inpatient.admissionDate}}</div>
+          <div class="col-md-2"><span></span><b>Target Weight: </b><span>{{ inpatient.targetWeight}}</span></div>
+          <div class="col-md-3"><span></span><b>Last Measured Weight: </b><span>{{ inpatient.lastMeasuredWeight}}</span></div>
+         
+         
+          
+    
+      
+                  
+       
+  </div></a>
+</li>
+</ul>
+
+
+  </div>
+<br><br>
+
+  <footer>
+    <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>
+
+ 
+    
+    
+         
+  
+
+

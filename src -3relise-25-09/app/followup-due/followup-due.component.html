@@ -1,0 +1,50 @@
+<ul class="navstyle breadcrumb">
+    <li class="navstyle1"><a href="#about">NRC</a></li>
+    <li class="navstyle1"><a href="#followup-search">Follow-up Search</a></li>
+    <li class="navstyle1"><a href="#followup-history">Follow-up Due </a></li>
+</ul>
+<div class="container">
+    <h3 style="color:#FFF;text-align: center"><img src="assets/images/followup1.png" class="imagecard" style="width: 4%;height:30%">Follow-up Due in this week</h3>
+    <div class="row">
+        <table id="example" class="table  table-bordered" style="width:100%;background-color:white">
+            <thead>
+                <tr>
+                    <th (click)="sort('childName')">Child Name
+                        <span class="glyphicon sort-icon" *ngIf="key =='childName'"></span>
+                    </th>
+                    <th (click)="sort('samNum')">SAM No.
+                        <span class="glyphicon sort-icon" *ngIf="key =='samNum'"></span>
+                    </th>
+                    <th>Contact No.
+                        <!-- <span class="glyphicon sort-icon" *ngIf="key =='Contact No.'" [ngClass]="{'fa fa-arrows-v':reverse,'fa fa-arrows-v':!reverse}"></span> -->
+                    </th>
+                    <th>Discharge Date
+                        <!-- <span class="glyphicon sort-icon" *ngIf="key =='Discharge Date'" [ngClass]="{'fa fa-arrows-v':reverse,'fa fa-arrows-v':!reverse}"></span> -->
+                    </th>
+                    <th>Follow-up No
+                        <!-- <span class="glyphicon sort-icon" *ngIf="key =='Followup No'" [ngClass]="{'fa fa-arrows-v':reverse,'fa fa-arrows-v':!reverse}"></span> -->
+                    </th>
+                    <th>Next Follow-up Date
+                        <!-- <span class="glyphicon sort-icon" *ngIf="key =='Next Follow-up Date'" [ngClass]="{'fa fa-arrows-v':reverse,'fa fa-arrows-v':!reverse}"></span> -->
+                    </th>
+                    <th>Last Follow-up Date
+                        <!-- <span class="glyphicon sort-icon" *ngIf="key =='Last Follow-up Date'" [ngClass]="{'fa fa-arrows-v':reverse,'fa fa-arrows-v':!reverse}"></span> -->
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="followupdues">
+                <tr *ngFor="let followupdue of followupdues | orderBy: key : reverse">
+                    <td>{{ followupdue.childName}}</td>
+                    <td>{{ followupdue.samNum}}</td>
+                    <td>{{ followupdue.mobileNumber}}</td>
+                    <td>{{ followupdue.dischargeDate}}</td>
+                    <td>{{ followupdue.followupNum}}</td>
+                    <td>{{ followupdue.nextFollowupDate}}</td>
+                    <td>{{ followupdue.lastFollowupDate}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>

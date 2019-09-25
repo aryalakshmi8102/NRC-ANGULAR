@@ -1,0 +1,119 @@
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about">NRC</a></li>
+  <li class="navstyle1"><a href="#inpatient-care">Inpatients</a></li>
+  <li class="navstyle1"><a href="#dailycare">Daily Weight Capture</a></li>
+ 
+</ul>
+
+
+
+<div class="container">
+  <div class="row">
+      <h3 style="color:#FFF;text-align: center"><img src="assets/images/inpatient1.png"  class="imagecard"  style="width: 4%;height:30%">Daily Weight Capture</h3>
+  </div>
+  <section class="search-sec">
+      <div class="container">
+          <form  #dailyForm='ngForm'  (ngSubmit)="onSubmitdailyForm(dailyForm.value)">
+            <!--  ngNativeValidate -->
+                <!-- {{dailyForm.value | json}}  -->
+              <div class="row">
+                  
+                            <div class=" col-md-3">
+                                    <label for="ex2"> Date</label>
+                                   <input type="date" class="form-control search-slt"
+                                      name="dailydate" value=" "   ngModel required> 
+                                      <!-- <input type="text"  data-date="" data-date-format="DD-MM-YYYY" value="2015-08-09"  ngModel> -->
+                                      <!-- <ejs-datepicker input type="text" class="form-control search-slt"  placeholder='Select a date' [value]= 'dateValue' format ='dd-MM-yyyy'  name="datepicker" [ngModel]='dateValue' id='datepicker'></ejs-datepicker> -->
+
+                              </div>
+                              <div class=" col-md-3 ">
+                                <label for="ex2">Diet</label>
+                                <input type="text" class="form-control search-slt" placeholder="Diet"
+                                    name="dailydiet" ngModel >
+                            </div>
+                         
+                          <div class=" col-md-3">
+                                <label for="ex2"> Weight(kg)</label>
+                              <input type="text"  pattern="/(7|8|9)\d{9}/" class="form-control search-slt"
+                                  placeholder="weight" name="dailyweight" ngModel>
+
+                          </div>
+                         
+                         
+
+                          <div class=" col-md-3">
+                                
+                              <button type="submit" class="btn btn-primary wrn-btn">Submit</button>
+
+                          </div>
+                     
+              </div>
+          </form>
+
+          <!-- <h1>Date pipe</h1>
+      <b>{{todaydate | date:'d/M/y'}}</b><br/>
+      <b>{{todaydate | date:'shortTime'}}</b> -->
+
+    
+      </div>
+  </section><br>
+
+ 
+</div>
+
+
+ <div class="container">
+    <div class="row">
+       <ul *ngIf="growthlists" >
+          <li > 
+     <div class="col-md-3" style="color: whitesmoke"><span><b>Name: </b></span>{{growthlists.childName}}</div>
+     <div class="col-md-3" style="color: whitesmoke"><span><b>SAM No: </b></span>{{growthlists.samNumber}}</div>
+      </li></ul>
+     
+   </div><br>
+        <ul *ngIf="growthlists" >
+          <li *ngFor="let growthlist of growthlists2">
+      
+          
+            
+        <div class="notice">
+            <div class="row">
+                <div class="col-md-3"><b>Date </b></div>
+               
+                <div class="col-md-2"><b>Diet </b></div>
+                <div class="col-md-2"><b>Weight(kg) </b></div>
+                <div class="col-md-3"><b>Weight Gain </b></div>
+                <div class="col-md-2"><b> </b></div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">{{growthlist.measurementDate}}</div>
+             
+              <div class="col-md-2">{{growthlist.diet}}</div>
+              <div class="col-md-2">{{growthlist.weightCm}}</div>
+              <div class="col-md-3">{{growthlist.weightGain}}</div>
+              <div class="col-md-2"><a  class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-remove" (click)="onclickdeleteChild(growthlist.measurementId)" ></span> Remove 
+              </a>
+             
+              </div>
+              
+              </div>
+
+            </div>
+
+  
+
+      </li>
+      </ul>
+        </div><br><br>
+        <footer>
+          <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+      </footer>
+
+
+
+
+
+

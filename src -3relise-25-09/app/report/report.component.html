@@ -1,0 +1,357 @@
+<ul class="navstyle breadcrumb">
+  <li class="navstyle1"><a href="#about" id="Colorbr">NRC</a></li>
+  <li class="navstyle1"><a href="#/report" id="Colorbr">Summary Report</a></li>
+</ul>
+
+<div class="container">
+    <div class="row">
+        <h3 style="color:#FFF;text-align: center"><img src="assets/images/report.png"  class="imagecard"  style="width: 4%;height:30%">NRC Summary Report Generation</h3>
+      </div>
+<!--   
+  <ul class="nav nav-pills" style="margin-left: 170px;">
+    <li class="active"><a data-toggle="pill" href="#home" style="color: white">Summary Report</a></li>
+    <li><a data-toggle="pill" href="#menu1" style="color: white">Monthly Report</a></li>
+    
+  </ul> -->
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+     
+      <section class="search-sec">
+          <div class="container" id="content" #content>
+            <form #reportForm='ngForm'  novalidate="novalidate"  (ngSubmit)="onSubmitReportForm(reportForm.value)">
+      
+              <div class="row">
+      
+                  <!-- <div class=" col-md-3 ">
+                      <label for="ex2">Report Type</label>
+                      <input type="text" class="form-control search-slt" placeholder="Summary Reports"  value="Summary Reports"  name="reporttype" disabled ngModel>
+                    </div> -->
+      
+                <div class=" col-md-2">
+                  <label for="ex2">Report End Date</label>
+                  <input type="date" class="form-control search-slt" placeholder="date" name="startdate" ngModel>
+      
+                </div>
+               
+                
+      
+      
+      
+                <div class=" col-md-3">
+      
+                  <button type="submit" class="btn btn-primary wrn-btn">Get Report</button>
+                 
+      
+                </div>
+      
+              </div>
+            </form>
+          </div>
+        </section><br>
+      
+    </div>
+    <div id="menu1" class="tab-pane fade">
+     
+        <section class="search-sec">
+            <div class="container" id="content" #content>
+              <form #MothlyreportForm='ngForm'  novalidate="novalidate"  (ngSubmit)="onSubmitMothlyreportForm(MothlyreportForm.value)">
+        
+                <div class="row">
+        
+                    <div class=" col-md-2 ">
+                        <label for="ex2">Month</label>
+                       
+                <select name="month" class="form-control search-slt" ngModel>
+    
+                  <option>January </option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+
+    
+    
+                </select>
+                    </div>
+
+        
+                  <div class=" col-md-2">
+                    <label for="ex2">Year</label>
+                    <!-- <select name="years" class="form-control search-slt" ngModel>
+    
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        
+      
+          
+          
+                      </select> -->
+                      <select  *ngIf="years" name="years" class="form-control"  ngModel  required>
+                        <option *ngFor="let year of years">{{year}}</option>
+                        
+                        
+                    </select>
+        
+                  </div>
+                 
+                  
+        
+        
+        
+                  <div class=" col-md-2">
+        
+                    <button type="submit" class="btn btn-primary wrn-btn">Get Report</button>
+                   
+        
+                  </div>
+        
+                </div>
+              </form>
+            </div>
+          </section><br>
+    </div>
+   
+   
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 
+<div class="container">
+  <div class="row">
+    <h3 style="color:#FFF;text-align: center"><img src="assets/images/report.png"  class="imagecard"  style="width: 4%;height:30%">NRC Report Generation</h3>
+  </div>
+  <section class="search-sec">
+    <div class="container" id="content" #content>
+      <form #reportForm='ngForm'  novalidate="novalidate"  (ngSubmit)="onSubmitReportForm(reportForm.value)">
+
+        <div class="row">
+
+            <div class=" col-md-3 ">
+                <label for="ex2">Report Type</label>
+                <select name="reportcategory" class="form-control search-slt" ngModel>
+    
+                  <option>Admission Report</option>
+                  <option>Monthly Report</option>
+    
+    
+                </select>
+              </div>
+
+          <div class=" col-md-2">
+            <label for="ex2">Report End Date</label>
+            <input type="date" class="form-control search-slt" placeholder="date" name="startdate" ngModel>
+
+          </div>
+         
+          
+
+
+
+          <div class=" col-md-3">
+
+            <button type="submit" class="btn btn-primary wrn-btn">Get Report</button>
+            
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section><br>
+
+
+</div> -->
+
+
+
+<!-- 
+<div style="text-align: center">
+  <input type="button" value="Download PDF" (click)="captureScreen()" />
+</div> <br> -->
+
+
+<div>
+
+  <!-- <table id="contentToConvert">
+    <div class="container" style="background-color:#FFF;margin-left: 55px;">
+
+
+
+
+
+      <div class="table-responsive" style="background-color:#FFF;">
+        <h3 style="columns: #000000;;text-align: center">Admission Reports</h3>
+        <h5 style="color:#000000;text-align: center">September 2018-June 2019</h5>
+
+        <hr>
+        <table id="mytable" class="table table">
+
+          <thead>
+
+
+            <th>Sl No</th>
+            <th>Month</th>
+            <th>Total No Of <br>Admission</th>
+            <th>Total No of <br>Discharge</th>
+            <th>Total No Of <br>Deaths</th>
+
+          </thead>
+          <tbody>
+
+            <tr>
+
+              <td>1</td>
+              <td>September 2018</td>
+              <td> 11</td>
+              <td>7</td>
+              <td>2</td>
+
+            </tr>
+
+            <tr>
+
+              <td>2</td>
+              <td>October2018</td>
+              <td>24</td>
+              <td>19</td>
+              <td>1</td>
+
+            </tr>
+
+            <tr>
+
+              <td>3</td>
+              <td>November2018</td>
+              <td> 18</td>
+              <td>17</td>
+              <td>0</td>
+
+            </tr>
+
+            <tr>
+
+              <td>4</td>
+              <td>December2018</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>1</td>
+
+            </tr>
+            <tr>
+
+              <td>5</td>
+              <td>January2019</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>1</td>
+
+            </tr>
+
+
+
+            <tr>
+
+              <td>6</td>
+              <td>Feb2019</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>2</td>
+
+            </tr>
+            <tr>
+
+              <td>7</td>
+              <td>March2019</td>
+              <td> 24</td>
+              <td>21</td>
+              <td>3</td>
+
+            </tr>
+            <tr>
+            <tr>
+
+              <td>8</td>
+              <td>April2019</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>1</td>
+
+            </tr>
+
+
+            <tr>
+
+              <td>9</td>
+              <td>May2019</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>1</td>
+
+            </tr>
+            <tr>
+
+              <td>10</td>
+              <td>June2019</td>
+              <td> 23</td>
+              <td>20</td>
+              <td>2</td>
+
+            </tr>
+            
+            <tr>
+
+
+              <td colspan="2"><b>Grand Total</b></td>
+              <td> <b>215</b></td>
+              <td><b>184</b></td>
+              <td><b>14</b></td>
+
+            </tr>
+
+
+
+
+
+
+
+          </tbody>
+
+        </table>
+
+        <div class="clearfix"></div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+  </table> -->
+
+
+</div>
+
+<footer>
+  <p><a style="color:#0a93a6; text-decoration:none;" href="#"> </a>SNEHA NRC is a collaborative effort of Government of Karnataka, IIITB and CSTEP</p>
+</footer>
